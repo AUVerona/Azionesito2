@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { IMAGES } from '../utils/paths'
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -35,7 +36,7 @@ const Navbar: React.FC = () => {
       <div className="nav-container">
         <div className="nav-logo">
           <Link to="/">
-            <img src="/Azionesito2/logo-auvr.png" alt="Logo AUVR" />
+            <img src={IMAGES.LOGO} alt="Logo AUVR" />
           </Link>
         </div>
         <button 
