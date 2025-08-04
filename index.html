@@ -33,10 +33,17 @@
     
     <!-- HashRouter redirect for direct access -->
     <script type="text/javascript">
-      // Se non c'è hash nella URL, reindirizza alla versione con hash
-      if (window.location.pathname.endsWith('/Azionesito2/') && !window.location.hash) {
-        window.location.replace(window.location.href + '#/');
-      }
+      // Redirect più robusto per HashRouter
+      (function() {
+        var currentPath = window.location.pathname;
+        var hash = window.location.hash;
+        
+        // Se siamo nella pagina principale senza hash, aggiungi #/
+        if ((currentPath.includes('/Azionesito2') || currentPath === '/Azionesito2/') && (!hash || hash === '')) {
+          console.log('Redirecting to hash router...');
+          window.location.replace(window.location.origin + window.location.pathname + '#/');
+        }
+      })();
     </script>
   </head>
   <body>
