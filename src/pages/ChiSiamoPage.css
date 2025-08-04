@@ -1,0 +1,48 @@
+/* Stili specifici per la pagina Chi Siamo */
+.chi-siamo-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chi-siamo-page main {
+  flex: 1;
+}
+
+.chi-siamo-extra {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.chi-siamo-extra .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.chi-siamo-extra h2 {
+  color: #333;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+.chi-siamo-extra h2:first-of-type {
+  margin-top: 0;
+}
+
+.chi-siamo-extra p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Stili responsive */
+@media (max-width: 768px) {
+  .chi-siamo-extra {
+    padding: 2rem 0;
+  }
+  
+  .chi-siamo-extra .container {
+    padding: 0 1rem;
+  }
+}

@@ -1,0 +1,142 @@
+/* Stili per la pagina Unisciti a Noi */
+.unisciti-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.unisciti-page main {
+  flex: 1;
+}
+
+.unisciti-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6rem 0 4rem;
+  text-align: center;
+}
+
+.unisciti-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.unisciti-hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.unisciti-content {
+  padding: 4rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0 4rem;
+}
+
+.benefit-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.benefit-card h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.benefit-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0 4rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  min-width: 250px;
+}
+
+.step-number {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: #667eea;
+  color: white;
+  border-radius: 50%;
+  line-height: 50px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.step p {
+  color: #333;
+  font-weight: 500;
+}
+
+.cta-section {
+  text-align: center;
+  background: #f8f9fa;
+  padding: 3rem;
+  border-radius: 10px;
+}
+
+.cta-button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #5a6fd8;
+}
+
+.cta-section p {
+  color: #666;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .unisciti-hero {
+    padding: 4rem 0 2rem;
+  }
+  
+  .unisciti-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .steps {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+}

@@ -1,0 +1,163 @@
+/* Stili per la pagina Aiuto Matricole */
+.aiuto-matricole-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.aiuto-matricole-page main {
+  flex: 1;
+}
+
+.aiuto-hero {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  padding: 6rem 0 4rem;
+  text-align: center;
+}
+
+.aiuto-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.aiuto-hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.aiuto-content {
+  padding: 4rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.help-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.help-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #11998e;
+}
+
+.help-card h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.help-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.help-card li {
+  color: #666;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.help-card li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #11998e;
+  font-weight: bold;
+}
+
+.faq-section {
+  background: #f8f9fa;
+  padding: 3rem;
+  border-radius: 10px;
+  margin-bottom: 4rem;
+}
+
+.faq-section h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.faq-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h4 {
+  color: #11998e;
+  margin-bottom: 0.5rem;
+}
+
+.faq-item p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-help {
+  text-align: center;
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  padding: 3rem;
+  border-radius: 10px;
+}
+
+.contact-help h2 {
+  margin-bottom: 1rem;
+}
+
+.contact-help p {
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.help-button {
+  background: white;
+  color: #11998e;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.help-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .aiuto-hero {
+    padding: 4rem 0 2rem;
+  }
+  
+  .aiuto-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .faq-section,
+  .contact-help {
+    padding: 2rem;
+  }
+}
