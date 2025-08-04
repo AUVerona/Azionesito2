@@ -35,18 +35,51 @@
             justify-content: space-between;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 0.5rem;
+            padding: 0 1rem;
+            position: relative;
         }
 
         .nav-logo {
-            margin-right: auto;
-            padding-left: 0;
-            margin-left: -13rem;
+            flex-shrink: 0;
+            z-index: 101;
         }
 
         .nav-logo img {
             height: 50px;
             width: auto;
+            display: block;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 101;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 2px 0;
+            transition: none;
+            border-radius: 2px;
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
         }
 
         nav ul {
@@ -54,14 +87,16 @@
             display: flex;
             gap: 1.5rem;
             margin: 0;
-            margin-left: auto;
+            padding: 0;
         }
 
         nav a {
             color: #333;
             text-decoration: none;
             padding: 0.5rem 1rem;
-            transition: color 0.3s;
+            transition: color 0.2s ease;
+            border-radius: 4px;
+            font-weight: 600;
         }
 
         nav a:hover {
@@ -107,6 +142,57 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
 
+        /* Elevated Cards Section */
+        .elevated-cards {
+            position: relative;
+            margin-top: -60px;
+            z-index: 10;
+            padding: 0 2rem;
+        }
+
+        .cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            font-weight: 400;
+            font-size: 1rem;
+        }
+
         main {
             flex: 1;
             padding: clamp(1rem, 4vw, 4rem);
@@ -114,6 +200,95 @@
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+        }
+
+        /* Chi Siamo Section */
+        .chi-siamo {
+            padding: 6rem 0 4rem 0;
+            background-color: white;
+        }
+
+        .chi-siamo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .chi-siamo h2 {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #333;
+            margin-bottom: 3rem;
+            font-weight: 800;
+        }
+
+        .chi-siamo-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .chi-siamo-text {
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .chi-siamo-text h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .chi-siamo-text p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .chi-siamo-image {
+            text-align: center;
+        }
+
+        .chi-siamo-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .highlight-item h4 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .highlight-item p {
+            color: #666;
+            font-weight: 400;
+            line-height: 1.5;
         }
 
         footer {
@@ -162,62 +337,231 @@
         }
 
         @media (max-width: 1024px) {
-            .nav-logo {
-                padding-left: 0;
-                margin-left: -2.5rem;
+            .nav-container {
+                padding: 0 1.5rem;
             }
             
             .nav-logo img {
                 height: 45px;
             }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            nav a {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.85rem;
+            }
         }
 
         @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+                order: 3;
+            }
+            
             .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 0 0.25rem;
+                padding: 0 1rem;
             }
             
             .nav-logo {
-                padding-left: 0;
-                margin-right: 0;
-                margin-left: -1rem;
+                order: 1;
             }
             
             nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.8rem;
-                margin-left: 0;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: auto;
+                background-color: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: stretch;
+                gap: 0;
+                margin: 0;
+                padding: 0;
+                transition: none;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                order: 2;
+                max-height: 0;
+                overflow: hidden;
+            }
+
+            nav ul.active {
+                max-height: 300px;
+                padding: 1rem 0;
+            }
+
+            nav li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav a {
+                font-size: 1rem;
+                padding: 0.8rem 1rem;
+                width: 100%;
+                text-align: center;
+                border: none;
+                border-bottom: 1px solid #f0f0f0;
+                border-radius: 0;
+                transition: none;
+                display: block;
+                margin-bottom: 0;
+            }
+
+            nav a:hover {
+                background-color: #f8f8f8;
+                color: #ffd700;
+            }
+
+            nav li:last-child a {
+                border-bottom: none;
             }
 
             .hero {
                 height: 40vh;
             }
+
+            .elevated-cards {
+                margin-top: -40px;
+                padding: 0 1rem;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            .card-icon {
+                font-size: 2.5rem;
+            }
+
+            .chi-siamo-container {
+                padding: 0 1rem;
+            }
+
+            .chi-siamo-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .highlight-item {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-container {
+                padding: 0 0.8rem;
+            }
+
+            nav ul.active {
+                max-height: 280px;
+                padding: 0.8rem 0;
+            }
+
+            nav a {
+                font-size: 0.95rem;
+                padding: 0.7rem 1rem;
+            }
         }
 
         @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 0.5rem;
+            }
+
             .nav-logo img {
                 height: 40px;
             }
 
-            nav ul {
-                flex-direction: column;
-                gap: 0.5rem;
-                width: 100%;
+            .hamburger {
+                padding: 0.3rem;
+            }
+
+            .hamburger span {
+                width: 22px;
+                height: 2.5px;
+            }
+
+            nav ul.active {
+                max-height: 260px;
+                padding: 0.6rem 0;
             }
 
             nav a {
-                text-align: center;
-                display: block;
-                padding: 0.7rem;
+                font-size: 0.9rem;
+                padding: 0.6rem 1rem;
             }
 
             .hero {
                 height: 35vh;
             }
+
+            .elevated-cards {
+                margin-top: -30px;
+                padding: 0 0.5rem;
+            }
+
+            .card {
+                padding: 1.5rem 1rem;
+            }
+
+            .card h3 {
+                font-size: 1.2rem;
+            }
+
+            .card p {
+                font-size: 0.9rem;
+            }
+
+            .chi-siamo {
+                padding: 3rem 0 2rem 0;
+            }
+
+            .chi-siamo h2 {
+                margin-bottom: 2rem;
+            }
         }
+
+        @media (max-width: 320px) {
+            .nav-container {
+                padding: 0 0.3rem;
+            }
+
+            .nav-logo img {
+                height: 35px;
+            }
+
+            .hamburger span {
+                width: 20px;
+                height: 2px;
+            }
+
+            nav ul.active {
+                max-height: 240px;
+                padding: 0.5rem 0;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
         .instagram-media {
   background: #fff;
   border: 0;
@@ -393,7 +737,12 @@
                  <div class="nav-logo">
                     <img src="logo-auvr.png" alt="Logo AUVR">
                  </div>
-                <ul>
+                 <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                 </div>
+                <ul id="nav-menu">
                     <li><a href="#chi-siamo">Chi Siamo</a></li>
                     <li><a href="#unisciti">Unisciti a Noi</a></li>
                     <li><a href="#aiuto">Aiuto Matricole</a></li>
@@ -410,6 +759,57 @@
             </div>
         </section>
 
+        <section class="elevated-cards">
+            <div class="cards-container">
+                <div class="card">
+                    <span class="card-icon">📚</span>
+                    <h3>Risorse di Studio</h3>
+                    <p>Accedi a materiali di studio, appunti condivisi e guide complete per i tuoi esami universitari.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">👥</span>
+                    <h3>Comunità Studentesca</h3>
+                    <p>Entra a far parte di una comunità attiva di studenti pronti a supportarsi a vicenda.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🎯</span>
+                    <h3>Obiettivi Comuni</h3>
+                    <p>Lavoriamo insieme per raggiungere i nostri obiettivi accademici e professionali.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="chi-siamo" id="chi-siamo">
+            <div class="chi-siamo-container">
+                <h2>Chi Siamo</h2>
+                <div class="chi-siamo-content">
+                    <div class="chi-siamo-text">
+                        <h3>La nostra missione</h3>
+                        <p>Siamo un'associazione studentesca dedicata a supportare e guidare gli studenti universitari nel loro percorso accademico. La nostra passione è creare una comunità inclusiva dove ogni studente possa trovare il supporto di cui ha bisogno.</p>
+                        <p>Crediamo nel potere della collaborazione e nell'importanza di condividere conoscenze ed esperienze per crescere insieme come comunità universitaria.</p>
+                    </div>
+                    <div class="chi-siamo-image">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&h=400&fit=crop" alt="Studenti universitari">
+                    </div>
+                </div>
+                
+                <div class="highlights">
+                    <div class="highlight-item">
+                        <h4>🎓 Supporto Accademico</h4>
+                        <p>Offriamo tutoraggio, materiali di studio e supporto per esami e progetti universitari.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>🤝 Comunità Attiva</h4>
+                        <p>Una rete di studenti pronti ad aiutarsi a vicenda e condividere esperienze.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>🌟 Crescita Personale</h4>
+                        <p>Eventi, workshop e opportunità per sviluppare competenze e costruire il proprio futuro.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <main>
 
 
@@ -421,6 +821,31 @@
     </div>
 
     <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
         // Show loading screen for 1 second, then fade to main content
         window.addEventListener('load', function() {
             setTimeout(function() {
@@ -438,6 +863,5 @@
         });
     </script>
 </body>
-<script async src="//www.instagram.com/embed.js"></script>
 
 </html>

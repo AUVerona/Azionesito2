@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Siamo - AUVR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f9f9f9;
+        }
+
+        nav {
+            background-color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .nav-logo {
+            flex-shrink: 0;
+            z-index: 101;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 101;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 2px 0;
+            transition: none;
+            border-radius: 2px;
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.2s ease;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .page-header p {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            opacity: 0.9;
+        }
+
+        .chi-siamo-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .intro-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .intro-text h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .intro-text p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .values-section {
+            background: white;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .values-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+
+        .value-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .value-item h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .value-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            margin-bottom: 4rem;
+        }
+
+        .team-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .team-member h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .team-member .role {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-member p {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+                order: 3;
+            }
+            
+            .nav-container {
+                padding: 0 1rem;
+            }
+            
+            .nav-logo {
+                order: 1;
+            }
+            
+            nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: auto;
+                background-color: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: stretch;
+                gap: 0;
+                margin: 0;
+                padding: 0;
+                transition: none;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                order: 2;
+                max-height: 0;
+                overflow: hidden;
+            }
+
+            nav ul.active {
+                max-height: 300px;
+                padding: 1rem 0;
+            }
+
+            nav li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav a {
+                font-size: 1rem;
+                padding: 0.8rem 1rem;
+                width: 100%;
+                text-align: center;
+                border: none;
+                border-bottom: 1px solid #f0f0f0;
+                border-radius: 0;
+                transition: none;
+                display: block;
+                margin-bottom: 0;
+            }
+
+            nav a:hover {
+                background-color: #f8f8f8;
+                color: #ffd700;
+            }
+
+            nav li:last-child a {
+                border-bottom: none;
+            }
+
+            .chi-siamo-content {
+                padding: 2rem 1rem;
+            }
+
+            .intro-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .values-section {
+                padding: 2rem 1rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header {
+                padding: 2rem 0;
+            }
+
+            .intro-text h2 {
+                font-size: 2rem;
+            }
+
+            .values-section h2,
+            .team-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+             <div class="nav-logo">
+                <img src="logo-auvr.png" alt="Logo AUVR">
+             </div>
+             <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+             </div>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chi-siamo.html" style="color: #ffd700;">Chi Siamo</a></li>
+                <li><a href="#unisciti">Unisciti a Noi</a></li>
+                <li><a href="#aiuto">Aiuto Matricole</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+                <li><a href="#social">Social</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>Chi Siamo</h1>
+        <p>Scopri la nostra storia, i nostri valori e il nostro team</p>
+    </section>
+
+    <div class="chi-siamo-content">
+        <section class="intro-section">
+            <div class="intro-text">
+                <h2>La Nostra Storia</h2>
+                <p>L'Associazione Universitaria Verona nasce dalla passione di un gruppo di studenti determinati a creare un ambiente di supporto e crescita per tutta la comunità studentesca.</p>
+                <p>Dal 2020, lavoriamo instancabilmente per fornire risorse, opportunità e una rete di supporto che aiuti ogni studente a raggiungere i propri obiettivi accademici e personali.</p>
+                <p>Crediamo fermamente nel potere della collaborazione e nell'importanza di costruire ponti tra studenti di diversi corsi di laurea e background.</p>
+            </div>
+            <div class="intro-image">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop" alt="Studenti universitari che collaborano">
+            </div>
+        </section>
+
+        <section class="values-section">
+            <h2>I Nostri Valori</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <span class="value-icon">🤝</span>
+                    <h3>Collaborazione</h3>
+                    <p>Crediamo che insieme si possa raggiungere qualsiasi obiettivo. La forza della nostra comunità sta nella collaborazione reciproca.</p>
+                </div>
+                <div class="value-item">
+                    <span class="value-icon">📚</span>
+                    <h3>Eccellenza Accademica</h3>
+                    <p>Sosteniamo l'impegno verso l'eccellenza negli studi, fornendo strumenti e risorse per il successo accademico.</p>
+                </div>
+                <div class="value-item">
+                    <span class="value-icon">🌍</span>
+                    <h3>Inclusività</h3>
+                    <p>La nostra associazione è aperta a tutti, indipendentemente dal background, creando un ambiente inclusivo e accogliente.</p>
+                </div>
+                <div class="value-item">
+                    <span class="value-icon">🚀</span>
+                    <h3>Innovazione</h3>
+                    <p>Sempre alla ricerca di nuove soluzioni e approcci per migliorare l'esperienza universitaria degli studenti.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <h2>Il Nostro Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">👨‍💼</div>
+                    <h3>Marco Rossi</h3>
+                    <div class="role">Presidente</div>
+                    <p>Studente di Ingegneria Informatica, coordina le attività dell'associazione e rappresenta gli studenti nelle decisioni accademiche.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">👩‍💼</div>
+                    <h3>Elena Bianchi</h3>
+                    <div class="role">Vice Presidente</div>
+                    <p>Studentessa di Economia, si occupa della gestione dei progetti e del coordinamento con le altre organizzazioni studentesche.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">👨‍💻</div>
+                    <h3>Luca Ferrari</h3>
+                    <div class="role">Responsabile Comunicazione</div>
+                    <p>Studente di Scienze della Comunicazione, gestisce i social media e le strategie di comunicazione dell'associazione.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">👩‍🔬</div>
+                    <h3>Sofia Verde</h3>
+                    <div class="role">Responsabile Eventi</div>
+                    <p>Studentessa di Biologia, organizza eventi, workshop e attività per la crescita personale e professionale degli studenti.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 AUVR - Associazione Universitaria Verona. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
