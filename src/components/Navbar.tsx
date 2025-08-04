@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
       <div className="nav-container">
         <div className="nav-logo">
           <Link to="/">
-            <img src="/logo-auvr.png" alt="Logo AUVR" />
+            <img src="/Azionesito2/logo-auvr.png" alt="Logo AUVR" />
           </Link>
         </div>
         <button 

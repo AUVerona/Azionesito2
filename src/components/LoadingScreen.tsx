@@ -5,7 +5,7 @@ const LoadingScreen: React.FC = () => {
     <div className="loading-screen">
       <img 
         className="loading-gif" 
-        src="/GIFSITO.gif" 
+        src="/Azionesito2/GIFSITO.gif"
         alt="Loading..." 
       />
     </div>
