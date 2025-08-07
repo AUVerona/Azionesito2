@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import LoadingScreen from './components/LoadingScreen'
+import ScrollToTop from './components/ScrollToTop'
 import HomePage from './pages/HomePage'
 import ChiSiamoPage from './pages/ChiSiamoPage'
 import UniscitiPage from './pages/UniscitiPage'
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/chi-siamo" element={<ChiSiamoPage />} />

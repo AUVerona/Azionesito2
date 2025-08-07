@@ -43,6 +43,21 @@
 
 .stat {
   text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.stat:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.stat:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.stat:nth-child(3) {
+  animation-delay: 0.6s;
 }
 
 .stat-number {
@@ -50,6 +65,13 @@
   font-size: 2.5rem;
   font-weight: bold;
   color: #667eea;
+  text-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.stat:hover .stat-number {
+  transform: scale(1.1);
+  color: #5a6fd8;
 }
 
 .stat-label {
@@ -57,6 +79,22 @@
   color: #666;
   text-transform: uppercase;
   letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.stat:hover .stat-label {
+  color: #333;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .about-image {

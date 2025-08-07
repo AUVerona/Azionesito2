@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import ElevatedCards from '../components/ElevatedCards'
 import Footer from '../components/Footer'
+import AnimatedStats from '../components/AnimatedStats'
 import './HomePage.css'
 
 const HomePage: React.FC = () => {
@@ -13,42 +15,40 @@ const HomePage: React.FC = () => {
       <ElevatedCards />
       
       {/* Sezione Chi Siamo Preview */}
-      <section className="about-preview">
-        <div className="container">
+      <section className="about-preview" style={{
+        backgroundImage: 'url(/fotodigruppo.jpeg)',
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        position: 'relative'
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(255, 255, 255, 0.85)',
+          zIndex: 1
+        }}></div>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="about-content">
             <div className="about-text">
               <h2>Chi Siamo</h2>
               <p>
-                Siamo l'Associazione Universitaria di Verona, una community dinamica e inclusiva 
+                Siamo l'Associazione Universitaria di Verona, una community dinamica 
                 che riunisce studenti di tutti i corsi di laurea. La nostra missione è creare 
                 un ambiente di supporto, crescita e condivisione per migliorare l'esperienza 
                 universitaria di ogni studente.
               </p>
               <p>
-                Dal 2015 organizziamo eventi, workshop, sessioni di studio e attività ricreative 
+                Dal 2024 organizziamo eventi, workshop, sessioni di studio e attività ricreative 
                 per favorire l'integrazione e il successo accademico dei nostri membri.
               </p>
-              <div className="about-stats">
-                <div className="stat">
-                  <span className="stat-number">500+</span>
-                  <span className="stat-label">Studenti Attivi</span>
-                </div>
-                <div className="stat">
-                  <span className="stat-number">50+</span>
-                  <span className="stat-label">Eventi all'Anno</span>
-                </div>
-                <div className="stat">
-                  <span className="stat-number">8</span>
-                  <span className="stat-label">Anni di Attività</span>
-                </div>
-              </div>
-              <a href="/chi-siamo" className="btn-primary">Scopri di Più</a>
+              <Link to="/chi-siamo" className="btn-primary">Scopri di Più</Link>
             </div>
-            <div className="about-image">
-              <div className="image-placeholder">
-                📚 Foto del gruppo studenti
-              </div>
-            </div>
+            <AnimatedStats />
           </div>
         </div>
       </section>
@@ -206,7 +206,7 @@ const HomePage: React.FC = () => {
           </div>
           <div className="events-cta">
             <p>Vuoi rimanere aggiornato su tutti i nostri eventi?</p>
-            <a href="/social" className="btn-secondary">Seguici sui Social</a>
+            <Link to="/social" className="btn-secondary">Seguici sui Social</Link>
           </div>
         </div>
       </section>
@@ -218,8 +218,8 @@ const HomePage: React.FC = () => {
             <h2>Pronto a Unirti a Noi?</h2>
             <p>Diventa parte della community universitaria più attiva di Verona. L'iscrizione è gratuita e aperta a tutti gli studenti!</p>
             <div className="cta-buttons">
-              <a href="/unisciti" className="btn-primary large">Iscriviti Ora</a>
-              <a href="/contatti" className="btn-outline large">Contattaci</a>
+              <Link to="/unisciti" className="btn-primary large">Iscriviti Ora</Link>
+              <Link to="/contatti" className="btn-outline large">Contattaci</Link>
             </div>
             <div className="cta-benefits">
               <span>✓ Iscrizione gratuita</span>
