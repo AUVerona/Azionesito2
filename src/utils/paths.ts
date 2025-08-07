@@ -9,7 +9,7 @@ export const getImagePath = (imageName: string): string => {
     return `/${imageName}`
   }
   
-  // In produzione (GitHub Pages), usa il base path
+  // In produzione (GitHub Pages), le immagini sono ora nella root
   return `/Azionesito2/${imageName}`
 }
 
