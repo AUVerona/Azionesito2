@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import ElevatedCards from '../components/ElevatedCards'
 import Footer from '../components/Footer'
+import fotoDigruppo from '../assets/fotodigruppo.jpeg'
 import './HomePage.css'
 
 const HomePage: React.FC = () => {
@@ -14,8 +15,24 @@ const HomePage: React.FC = () => {
       <ElevatedCards />
       
       {/* Sezione Chi Siamo Preview */}
-      <section className="about-preview">
-        <div className="container">
+      <section className="about-preview" style={{
+        backgroundImage: `url(${fotoDigruppo})`,
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        position: 'relative'
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(255, 255, 255, 0.85)',
+          zIndex: 1
+        }}></div>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="about-content">
             <div className="about-text">
               <h2>Chi Siamo</h2>
