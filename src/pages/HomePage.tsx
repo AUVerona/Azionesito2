@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import ElevatedCards from '../components/ElevatedCards'
 import Footer from '../components/Footer'
-import AnimatedStats from '../components/AnimatedStats'
 import './HomePage.css'
 
 const HomePage: React.FC = () => {
@@ -15,24 +14,8 @@ const HomePage: React.FC = () => {
       <ElevatedCards />
       
       {/* Sezione Chi Siamo Preview */}
-      <section className="about-preview" style={{
-        backgroundImage: 'url(/fotodigruppo.jpeg)',
-        backgroundAttachment: 'fixed',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        position: 'relative'
-      }}>
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(255, 255, 255, 0.85)',
-          zIndex: 1
-        }}></div>
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+      <section className="about-preview">
+        <div className="container">
           <div className="about-content">
             <div className="about-text">
               <h2>Chi Siamo</h2>
@@ -48,7 +31,20 @@ const HomePage: React.FC = () => {
               </p>
               <Link to="/chi-siamo" className="btn-primary">Scopri di Più</Link>
             </div>
-            <AnimatedStats />
+            <div className="about-stats">
+              <div className="stat">
+                <span className="stat-number">1600+</span>
+                <span className="stat-label">Studenti che hanno creduto in noi</span>
+              </div>
+              <div className="stat">
+                <span className="stat-number">30+</span>
+                <span className="stat-label">Eventi all'Anno</span>
+              </div>
+              <div className="stat">
+                <span className="stat-number">25+</span>
+                <span className="stat-label">Membri Attivi</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
