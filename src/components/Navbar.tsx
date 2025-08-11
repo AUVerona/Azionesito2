@@ -4,6 +4,7 @@ import { IMAGES } from '../utils/paths'
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isNavVisible, setIsNavVisible] = useState(true)
   const navMenuRef = useRef<HTMLUListElement>(null)
   const hamburgerRef = useRef<HTMLButtonElement>(null)
 
@@ -27,12 +28,32 @@ const Navbar: React.FC = () => {
       }
     }
 
+    const handleScroll = () => {
+      const footer = document.querySelector('.footer')
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect()
+        const windowHeight = window.innerHeight
+        
+        // Nascondi la navbar quando il footer è visibile
+        if (footerRect.top <= windowHeight) {
+          setIsNavVisible(false)
+        } else {
+          setIsNavVisible(true)
+        }
+      }
+    }
+
     document.addEventListener('click', handleClickOutside)
-    return () => document.removeEventListener('click', handleClickOutside)
+    window.addEventListener('scroll', handleScroll)
+    
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
   return (
-    <nav>
+    <nav className={`navbar ${!isNavVisible ? 'hidden' : ''}`}>
       <div className="nav-container">
         <div className="nav-logo">
           <Link to="/">

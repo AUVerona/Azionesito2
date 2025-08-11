@@ -17,29 +17,29 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Sezione Mappa - Centro */}
-        <div className="footer-section map">
-          <div className="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.123456789!2d10.9999!3d45.4064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVia%20Campo%20Fiore%2017A%2C%20Verona!5e0!3m2!1sit!2sit!4v1234567890"
-              width="100%"
-              height="200"
-              style={{ border: 0, borderRadius: '8px' }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Mappa Via Campo Fiore 17A, Verona"
-            ></iframe>
+        {/* Sezione Menu Pagine - Centro */}
+        <div className="footer-section pages">
+          <h3>Pagine del Sito</h3>
+          <div className="pages-menu">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/chi-siamo">Chi Siamo</a></li>
+              <li><a href="/unisciti">Unisciti a Noi</a></li>
+              <li><a href="/social">Social</a></li>
+              <li><a href="/contatti">Contatti</a></li>
+              <li><a href="/aiuto-matricole">Aiuto Matricole</a></li>
+            </ul>
           </div>
         </div>
 
         {/* Sezione Immagine - Destra */}
         <div className="footer-section image">
           <div className="image-container">
-            {/* Placeholder per l'immagine che aggiungerai */}
-            <div className="image-placeholder">
-              <span>Inserisci qui la tua immagine</span>
-            </div>
+            <img 
+              src="https://www.matricoleverona.org/logo-auvr-verona.png" 
+              alt="Logo Azione Universitaria Verona"
+              className="footer-logo"
+            />
           </div>
         </div>
       </div>

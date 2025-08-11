@@ -69,96 +69,105 @@ const HomePage: React.FC = () => {
       {/* Sezione Servizi */}
       <section className="services">
         <div className="container">
-          <h2>I Nostri Servizi</h2>
+          <h2>I nostri Obiettivi</h2>
           <div className="services-grid">
             <div className="service-card">
-              <div className="service-icon">🎓</div>
-              <h3>Supporto Accademico</h3>
-              <p>Tutor personalizzati, gruppi di studio e materiali didattici per ogni corso di laurea.</p>
+              <div className="service-icon">⏰</div>
+              <h3>Ottimizare gli orari</h3>
+              <p>Pause infinite e orari impossibili? Cambiamo le cose insieme!
+               Con Azione Universitaria proponiamo:</p>
               <ul>
-                <li>Sessioni di ripasso pre-esame</li>
-                <li>Condivisione appunti e materiali</li>
-                <li>Mentoring da studenti senior</li>
+                <li>Lezioni senza pause eccessive.</li>
+                <li>Fine delle lezioni entro orari ragionevoli.</li>
+                <li>Pianificazione più intelligente per evitare inutili perdite di tempo.</li>
               </ul>
             </div>
             
             <div className="service-card">
-              <div className="service-icon">🤝</div>
-              <h3>Networking</h3>
-              <p>Costruisci relazioni durature con colleghi, alumni e professionisti del settore.</p>
+              <div className="service-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+              <h3>Organizziamo il futuro del CLA pensando a TE!</h3>
+              <p>Con Azione Universitaria vogliamo:</p>
               <ul>
-                <li>Eventi di networking</li>
-                <li>Incontri con alumni</li>
+                <li>Sessioni d'esame più ampie e flessibili.</li>
+                <li>Aumento valore della certificazione</li>
                 <li>Collaborazioni inter-corso</li>
               </ul>
             </div>
             
             <div className="service-card">
-              <div className="service-icon">🎯</div>
-              <h3>Orientamento Carriera</h3>
-              <p>Workshop, seminari e consulenze per prepararti al mondo del lavoro.</p>
+              <div className="service-icon">📚</div>
+              <h3>Sessioni d'esame più organizzate, meno stress!</h3>
+              <p>Basta esami sovrapposti o sessioni ingestibili! Con Azione Universitaria proponiamo:</p>
               <ul>
-                <li>CV e colloqui di lavoro</li>
-                <li>Stage e opportunità</li>
-                <li>Career coaching</li>
+                <li>Preappelli obbligatori per suddividere il carico.</li>
+                <li>Sessioni più ampie e flessibili.</li>
+                <li>Zero sovrapposizioni tra date d'esame</li>
               </ul>
             </div>
             
             <div className="service-card">
               <div className="service-icon">🎉</div>
-              <h3>Eventi e Attività</h3>
-              <p>Un calendario ricco di eventi sociali, culturali e ricreativi per tutti i gusti.</p>
+              <h3>Organizziamo i seminari universitari pensando a TE!</h3>
+              <p>Con Azione Universitaria vogliamo:</p>
               <ul>
-                <li>Feste e aperitivi</li>
-                <li>Gite ed escursioni</li>
-                <li>Tornei sportivi</li>
+                <li>Programmazione senza sovrapposizioni con le lezioni.</li>
+                <li>Accessibilità per studenti lavoratori, pendolari e fuoricorso.</li>
+                <li>Temi innovativi e interdisciplinari.</li>
+                <li>Comunicazione chiara e tempestiva su tutte le opportunità.</li>
+              </ul>
+            </div>
+            
+            <div className="service-card">
+              <div className="service-icon">🤝</div>
+              <h3>Rappresentanza studentesca efficace</h3>
+              <p>La tua voce conta! Con Azione Universitaria assicuriamo:</p>
+              <ul>
+                <li>Rappresentanti attivi e presenti in tutti gli organi.</li>
+                <li>Comunicazione trasparente delle decisioni prese.</li>
+                <li>Raccolta sistematica di feedback e proposte degli studenti.</li>
+                <li>Dialogo costruttivo con docenti e amministrazione.</li>
+              </ul>
+            </div>
+            
+            <div className="service-card">
+              <div className="service-icon">💡</div>
+              <h3>Innovazione e digitalizzazione</h3>
+              <p>Verso un'università più moderna e tecnologica:</p>
+              <ul>
+                <li>Piattaforme digitali più intuitive e funzionali.</li>
+                <li>App universitaria per gestire tutto dal tuo smartphone.</li>
+                <li>Wifi potenziato in tutti gli edifici universitari.</li>
+                <li>Strumenti digitali per migliorare l'apprendimento.</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Sezione Testimonianze */}
-      <section className="testimonials">
+      {/* Sezione Responsabili */}
+      <section className="team-leaders">
         <div className="container">
-          <h2>Cosa Dicono i Nostri Membri</h2>
-          <div className="testimonials-grid">
-            <div className="testimonial">
-              <div className="testimonial-content">
-                <p>"Grazie all'associazione ho trovato un gruppo di studio fantastico e sono riuscita a superare gli esami più difficili. Il supporto dei tutor è stato fondamentale!"</p>
+          <h2>I nostri Responsabili</h2>
+          <div className="leaders-split">
+            <div className="leader-left">
+              <div className="leader-avatar">
+                <div className="avatar-icon">👩‍💻</div>
               </div>
-              <div className="testimonial-author">
-                <div className="author-avatar">👩‍🎓</div>
-                <div className="author-info">
-                  <h4>Sarah M.</h4>
-                  <span>Economia e Management</span>
-                </div>
+              <div className="leader-info">
+                <h3>Marica Peroni</h3>
+                <h4>Presidente</h4>
+                <p>Studente di Studi Strategici al primo anno, Marica coordina le attività dell'associazione e rappresenta gli studenti negli organi universitari. Appassionato di diritto costituzionale e attivismo studentesco, si dedica al miglioramento dell'esperienza universitaria per tutti gli studenti.</p>
               </div>
             </div>
             
-            <div className="testimonial">
-              <div className="testimonial-content">
-                <p>"Le attività di networking mi hanno permesso di incontrare professionisti del mio settore e trovare il tirocinio perfetto per il mio percorso."</p>
+            <div className="leader-right">
+              <div className="leader-avatar">
+                <div className="avatar-icon">👨‍💼</div>
               </div>
-              <div className="testimonial-author">
-                <div className="author-avatar">👨‍💻</div>
-                <div className="author-info">
-                  <h4>Marco R.</h4>
-                  <span>Informatica</span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="testimonial">
-              <div className="testimonial-content">
-                <p>"Non solo supporto accademico, ma anche tante amicizie e momenti divertenti. L'università non è mai stata così coinvolgente!"</p>
-              </div>
-              <div className="testimonial-author">
-                <div className="author-avatar">👩‍🔬</div>
-                <div className="author-info">
-                  <h4>Elena G.</h4>
-                  <span>Biotecnologie</span>
-                </div>
+              <div className="leader-info">
+                <h3>Enzo Russo</h3>
+                <h4>Vice Presidente</h4>
+                <p>Laureando in Scienze Giuridiche, Enzo si occupa della gestione organizzativa e dei rapporti con le aziende partner. Esperto in project management e networking professionale, coordina eventi e iniziative per lo sviluppo della carriera studentesca.</p>
               </div>
             </div>
           </div>
