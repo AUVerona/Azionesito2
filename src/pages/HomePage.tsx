@@ -228,7 +228,7 @@ const HomePage: React.FC = () => {
           </div>
           <div className="events-cta">
             <p>Vuoi rimanere aggiornato su tutti i nostri eventi?</p>
-            <Link to="/social" className="btn-secondary">Seguici sui Social</Link>
+            <Link to="/contatti" className="btn-secondary">Contattaci</Link>
           </div>
         </div>
       </section>

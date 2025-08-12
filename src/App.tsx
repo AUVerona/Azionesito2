@@ -7,7 +7,6 @@ import ChiSiamoPage from './pages/ChiSiamoPage'
 import UniscitiPage from './pages/UniscitiPage'
 import AiutoMatricolePage from './pages/AiutoMatricolePage'
 import ContattiPage from './pages/ContattiPage'
-import SocialPage from './pages/SocialPage'
 import './App.css'
 
 function App() {
@@ -34,7 +33,6 @@ function App() {
         <Route path="/unisciti" element={<UniscitiPage />} />
         <Route path="/aiuto-matricole" element={<AiutoMatricolePage />} />
         <Route path="/contatti" element={<ContattiPage />} />
-        <Route path="/social" element={<SocialPage />} />
       </Routes>
     </div>
   )
