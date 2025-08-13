@@ -171,12 +171,12 @@ const UniscitiPage: React.FC = () => {
 
               {!showForm ? (
                 <div className="cta-buttons">
-                  <button 
+                  <a 
                     className="cta-button primary"
-                    onClick={() => setShowForm(true)}
+                    href="#/unisciti"
                   >
                     Iscriviti Ora
-                  </button>
+                  </a>
                   <p>L'iscrizione è gratuita per tutti gli studenti dell'Università di Verona</p>
                 </div>
               ) : (

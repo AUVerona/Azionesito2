@@ -260,6 +260,7 @@ Ora: ${new Date().toLocaleTimeString('it-IT')}
               <div className="map-placeholder">
                 <p>🗺️ Mappa dell'Università di Verona</p>
                 <p>Qui sarà inserita la mappa interattiva</p>
+                <p><a href="#/aiuto-matricole">Serve aiuto? Vai alla pagina Aiuto Matricole</a></p>
               </div>
               
               <div className="transport-info">

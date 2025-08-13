@@ -89,7 +89,6 @@ const ElevatedCards: React.FC = () => {
   ];
 
   // Date degli eventi in formato Date
-  const eventiDate = eventiAU.map(e => new Date(e.data));
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedEvent, setSelectedEvent] = useState<any | null>(null);
   const [popupPos, setPopupPos] = useState<{top: number, left: number} | null>(null);

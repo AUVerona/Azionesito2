@@ -22,12 +22,12 @@ const Footer: React.FC = () => {
           <h3>Pagine del Sito</h3>
           <div className="pages-menu">
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/chi-siamo">Chi Siamo</a></li>
-              <li><a href="/unisciti">Unisciti a Noi</a></li>
-              <li><a href="/social">Social</a></li>
-              <li><a href="/contatti">Contatti</a></li>
-              <li><a href="/aiuto-matricole">Aiuto Matricole</a></li>
+              <li><a href="#/">Home</a></li>
+              <li><a href="#/chi-siamo">Chi Siamo</a></li>
+              <li><a href="#/unisciti">Unisciti a Noi</a></li>
+              <li><a href="#/social">Social</a></li>
+              <li><a href="#/contatti">Contatti</a></li>
+              <li><a href="#/aiuto-matricole">Aiuto Matricole</a></li>
             </ul>
           </div>
         </div>

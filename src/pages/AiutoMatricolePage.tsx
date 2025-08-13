@@ -78,7 +78,7 @@ const AiutoMatricolePage: React.FC = () => {
             <div className="contact-help">
               <h2>Hai ancora dubbi?</h2>
               <p>Il nostro team di tutor è sempre disponibile per aiutarti!</p>
-              <button className="help-button">Contatta un Tutor</button>
+              <a className="help-button" href="#/contatti">Contatta un Tutor</a>
             </div>
           </div>
         </section>
