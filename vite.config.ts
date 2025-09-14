@@ -3,8 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
-  // Usa sempre root per GitHub Pages
-  const base = '/'
+  const base = command === 'build' ? '/Azionesito2/' : '/'
   
   return {
     plugins: [react()],
