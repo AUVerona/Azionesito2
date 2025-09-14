@@ -1,0 +1,237 @@
+/* Stili specifici per la pagina Donazioni seguendo il pattern di ChiSiamoPage */
+.donazioni-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.donazioni-page main {
+  flex: 1;
+}
+
+/* Hero Section semplificata */
+.donazioni-hero {
+  background-color: #ffffff;
+  padding: 4rem 0 2rem;
+  text-align: center;
+}
+
+.donazioni-hero h1 {
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 2rem;
+  background: linear-gradient(180deg, transparent 65%, rgba(40, 167, 69, 0.3) 65%, rgba(32, 201, 151, 0.3) 100%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 0.2rem 0;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Contenuto principale */
+.donazioni-content-section {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.donazioni-content-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+  line-height: 1.3;
+  position: relative;
+  display: inline-block;
+}
+
+.donazioni-content-section h2:first-of-type {
+  margin-top: 0;
+}
+
+.donazioni-content-section h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2E86C1;
+  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
+  line-height: 1.4;
+}
+
+.donazioni-content-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  font-weight: normal;
+}
+
+.donazioni-content-section p strong {
+  font-weight: 700;
+  color: #1a365d;
+}
+
+.donazioni-content-section p em {
+  font-style: italic;
+  color: #2E86C1;
+  font-weight: 500;
+}
+
+.content-section {
+  margin-bottom: 2rem;
+}
+
+.call-to-action {
+  border-top: 2px solid #e9ecef;
+  padding-top: 2rem;
+  margin-top: 3rem;
+}
+
+/* Sezioni specifiche per donazioni */
+.bank-details {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #2E86C1;
+  margin: 1rem 0;
+  font-family: monospace;
+}
+
+.bank-details p {
+  margin: 0.5rem 0;
+  color: #333 !important;
+  font-size: 0.95rem !important;
+  text-align: left !important;
+}
+
+.digital-donations {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.donation-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 150px;
+}
+
+.paypal-button {
+  background-color: #0070ba;
+  color: white;
+}
+
+.paypal-button:hover {
+  background-color: #005ea6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 112, 186, 0.3);
+}
+
+.kofi-button {
+  background-color: #ff5f5f;
+  color: white;
+}
+
+.kofi-button:hover {
+  background-color: #ff4757;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 95, 95, 0.3);
+}
+
+/* Stili responsive */
+@media (max-width: 768px) {
+  .donazioni-hero {
+    padding: 3rem 0 2rem;
+  }
+  
+  .donazioni-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .donazioni-content-section {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .donazioni-content-section h2 {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .donazioni-content-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    margin-top: 2rem;
+  }
+  
+  .donazioni-content-section p {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+  }
+  
+  .digital-donations {
+    flex-direction: column;
+  }
+  
+  .donation-button {
+    width: 100%;
+  }
+  
+  .bank-details {
+    padding: 1rem;
+  }
+  
+  .bank-details p {
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .donazioni-hero {
+    padding: 2rem 0 1.5rem;
+  }
+  
+  .donazioni-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .donazioni-content-section {
+    padding: 2rem 0;
+  }
+  
+  .donazioni-content-section h2 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .donazioni-content-section h3 {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .donazioni-content-section p {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+}

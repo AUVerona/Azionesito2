@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 import emailjs from '@emailjs/browser'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -11,11 +12,13 @@ const UniscitiPage: React.FC = () => {
     email: '',
     telefono: '',
     corso: '',
-    annoStudio: ''
+    annoStudio: '',
+    message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
-  const [showForm, setShowForm] = useState(false)
+  const [privacyAccepted, setPrivacyAccepted] = useState(false)
+  const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -27,6 +30,13 @@ const UniscitiPage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Validazione reCAPTCHA
+    if (!recaptchaValue) {
+      setSubmitStatus('error')
+      return
+    }
+    
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
@@ -92,10 +102,11 @@ const UniscitiPage: React.FC = () => {
       // Reset form dopo invio
       setFormData({
         nome: '', cognome: '', email: '', telefono: '', corso: '', 
-        annoStudio: ''
+        annoStudio: '', message: ''
       })
+      setPrivacyAccepted(false)
+      setRecaptchaValue(null)
       setSubmitStatus('success')
-      setShowForm(false)
       
       // Nascondi messaggio dopo 8 secondi
       setTimeout(() => {
@@ -112,188 +123,124 @@ const UniscitiPage: React.FC = () => {
   }
   
   return (
-    <div className="unisciti-page">
+    <div className="contatti-page">
       <Navbar />
       <main>
-        <section className="unisciti-hero">
-          <div className="container">
-            <h1>Lascia il tuo contatto, ti terremo aggiornato!</h1>
-            <p>Diventa parte della nostra community universitaria!</p>
-          </div>
-        </section>
-        
-        <section className="unisciti-content">
-          <div className="container">
-            <h2>Perché Unirti a Noi?</h2>
-            <div className="benefits-grid">
-              <div className="benefit-card">
-                <h3>Supporto Accademico</h3>
-                <p>Ricevi aiuto per gli esami, materiali di studio e consigli dai tuoi colleghi più esperti.</p>
+        <div className="container">
+          <h1>Contattaci</h1>
+          
+          <section className="form-section">
+            {submitStatus === 'success' && (
+              <div className="success-message">
+                🎉 Messaggio inviato con successo! Ti risponderemo al più presto.
               </div>
-              <div className="benefit-card">
-                <h3>Network Professionale</h3>
-                <p>Costruisci relazioni che ti accompagneranno durante e dopo l'università.</p>
-              </div>
-              <div className="benefit-card">
-                <h3>Eventi e Attività</h3>
-                <p>Partecipa a eventi, workshop e attività ricreative organizzate dalla nostra associazione.</p>
-              </div>
-            </div>
+            )}
             
-            <h2>Come Iscriversi</h2>
-            <div className="steps">
-              <div className="step">
-                <span className="step-number">1</span>
-                <p>Compila il modulo di iscrizione online</p>
+            {submitStatus === 'error' && (
+              <div className="error-message">
+                ❌ Errore nell'invio. Verifica che tutti i campi siano compilati correttamente e completa la verifica di sicurezza reCAPTCHA.
               </div>
-              <div className="step">
-                <span className="step-number">2</span>
-                <p>Partecipa al nostro evento di benvenuto</p>
-              </div>
-              <div className="step">
-                <span className="step-number">3</span>
-                <p>Inizia a far parte della community!</p>
-              </div>
-            </div>
-            
-            <div className="cta-section">
-              {submitStatus === 'success' && (
-                <div className="success-message">
-                  🎉 Iscrizione inviata con successo! Riceverai presto conferma via email.
+            )}
+
+            <form onSubmit={handleSubmit} className="contact-form">
+              <div className="form-row">
+                <div className="form-group">
+                  <input 
+                    type="text" 
+                    name="nome" 
+                    value={formData.nome}
+                    onChange={handleInputChange}
+                    placeholder="Nome*"
+                    required 
+                  />
                 </div>
-              )}
+                
+                <div className="form-group">
+                  <input 
+                    type="text" 
+                    name="cognome" 
+                    value={formData.cognome}
+                    onChange={handleInputChange}
+                    placeholder="Cognome*"
+                    required 
+                  />
+                </div>
+              </div>
               
-              {submitStatus === 'error' && (
-                <div className="error-message">
-                  ❌ Errore nell'invio. Riprova più tardi o contattaci direttamente.
+              <div className="form-row">
+                <div className="form-group">
+                  <input 
+                    type="email" 
+                    name="email" 
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="E-mail*"
+                    required 
+                  />
                 </div>
-              )}
-
-              {!showForm ? (
-                <div className="cta-buttons">
-                  <a 
-                    className="cta-button primary"
-                    href="#/unisciti"
-                  >
-                    Iscriviti Ora
-                  </a>
-                  <p>L'iscrizione è gratuita per tutti gli studenti dell'Università di Verona</p>
+                
+                <div className="form-group">
+                  <input 
+                    type="tel" 
+                    name="telefono" 
+                    value={formData.telefono}
+                    onChange={handleInputChange}
+                    placeholder="Telefono"
+                  />
                 </div>
-              ) : (
-                <div className="inscription-form">
-                  <h2>Modulo di Iscrizione</h2>
-                  <p>Compila tutti i campi per completare la tua iscrizione all'AUVR</p>
-                  
-                  <form onSubmit={handleSubmit}>
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label htmlFor="nome">Nome *</label>
-                        <input 
-                          type="text" 
-                          id="nome" 
-                          name="nome" 
-                          value={formData.nome}
-                          onChange={handleInputChange}
-                          required 
-                        />
-                      </div>
-                      
-                      <div className="form-group">
-                        <label htmlFor="cognome">Cognome *</label>
-                        <input 
-                          type="text" 
-                          id="cognome" 
-                          name="cognome" 
-                          value={formData.cognome}
-                          onChange={handleInputChange}
-                          required 
-                        />
-                      </div>
-                    </div>
-
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label htmlFor="email">Email Universitaria *</label>
-                        <input 
-                          type="email" 
-                          id="email" 
-                          name="email" 
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder="nome.cognome@studenti.univr.it"
-                          required 
-                        />
-                      </div>
-                      
-                      <div className="form-group">
-                        <label htmlFor="telefono">Telefono</label>
-                        <input 
-                          type="tel" 
-                          id="telefono" 
-                          name="telefono" 
-                          value={formData.telefono}
-                          onChange={handleInputChange}
-                          placeholder="+39 XXX XXX XXXX"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label htmlFor="corso">Corso di Studio *</label>
-                        <input 
-                          type="text" 
-                          id="corso" 
-                          name="corso" 
-                          value={formData.corso}
-                          onChange={handleInputChange}
-                          placeholder="es. Informatica, Economia, Medicina..."
-                          required 
-                        />
-                      </div>
-                      
-                      <div className="form-group">
-                        <label htmlFor="annoStudio">Anno di Corso *</label>
-                        <select 
-                          id="annoStudio" 
-                          name="annoStudio"
-                          value={formData.annoStudio}
-                          onChange={handleInputChange}
-                          required
-                        >
-                          <option value="">Seleziona anno</option>
-                          <option value="1° Anno">1° Anno</option>
-                          <option value="2° Anno">2° Anno</option>
-                          <option value="3° Anno">3° Anno</option>
-                          <option value="1° Anno Magistrale">1° Anno Magistrale</option>
-                          <option value="2° Anno Magistrale">2° Anno Magistrale</option>
-                          <option value="Dottorato">Dottorato</option>
-                        </select>
-                      </div>
-                    </div>
-                    
-                    <div className="form-buttons">
-                      <button 
-                        type="button" 
-                        className="cta-button secondary"
-                        onClick={() => setShowForm(false)}
-                      >
-                        Annulla
-                      </button>
-                      <button 
-                        type="submit" 
-                        className="cta-button primary"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? 'Invio in corso...' : 'Completa Iscrizione'}
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
+              </div>
+              
+              <div className="form-group full-width">
+                <input 
+                  type="text" 
+                  name="corso" 
+                  value={formData.corso}
+                  onChange={handleInputChange}
+                  placeholder="Corso di Studi"
+                  required 
+                />
+              </div>
+              
+              <div className="form-group full-width">
+                <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="Scrivi qui il tuo messaggio..."
+                  rows={6}
+                ></textarea>
+              </div>
+              
+              <div className="privacy-group">
+                <label>
+                  <input 
+                    type="checkbox" 
+                    checked={privacyAccepted}
+                    onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                    required
+                  />
+                  <span>Ho letto e accetto l'<a href="/privacy" target="_blank">informativa privacy</a></span>
+                </label>
+              </div>
+              
+              <div className="recaptcha-group">
+                <ReCAPTCHA
+                  sitekey="6LdKX8krAAAAAGUddknlxZkDPdI3E1SVLqjm32v0"
+                  onChange={(value) => setRecaptchaValue(value)}
+                  onExpired={() => setRecaptchaValue(null)}
+                />
+              </div>
+              
+              <button 
+                type="submit" 
+                className="submit-button"
+                disabled={isSubmitting || !privacyAccepted || !recaptchaValue}
+              >
+                {isSubmitting ? 'Invio in corso...' : 'Invia la tua richiesta'}
+              </button>
+            </form>
+          </section>
+        </div>
       </main>
       <Footer />
     </div>

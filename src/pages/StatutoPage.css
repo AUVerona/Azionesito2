@@ -1,0 +1,193 @@
+/* Stili specifici per la pagina Statuto seguendo il pattern di ChiSiamoPage */
+.statuto-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.statuto-page main {
+  flex: 1;
+}
+
+/* Hero Section semplificata */
+.statuto-hero {
+  background-color: #ffffff;
+  padding: 4rem 0 2rem;
+  text-align: center;
+}
+
+.statuto-hero h1 {
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 2rem;
+  background: linear-gradient(180deg, transparent 65%, rgba(40, 167, 69, 0.3) 65%, rgba(32, 201, 151, 0.3) 100%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 0.2rem 0;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Contenuto principale */
+.statuto-content-section {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.statuto-content-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+  line-height: 1.3;
+  position: relative;
+  display: inline-block;
+}
+
+.statuto-content-section h2:first-of-type {
+  margin-top: 0;
+}
+
+.statuto-content-section h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2E86C1;
+  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
+  line-height: 1.4;
+}
+
+.statuto-content-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  font-weight: normal;
+}
+
+.statuto-content-section p strong {
+  font-weight: 700;
+  color: #1a365d;
+}
+
+.statuto-content-section p em {
+  font-style: italic;
+  color: #2E86C1;
+  font-weight: 500;
+}
+
+.content-section {
+  margin-bottom: 2rem;
+}
+
+.call-to-action {
+  border-top: 2px solid #e9ecef;
+  padding-top: 2rem;
+  margin-top: 3rem;
+}
+
+/* Sezione PDF integrata nel contenuto */
+.pdf-section {
+  margin: 2rem 0;
+}
+
+.pdf-container {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border: 2px solid #e9ecef;
+  margin: 2rem 0;
+}
+
+.pdf-viewer {
+  width: 100%;
+  height: 600px;
+  border: none;
+  display: block;
+}
+
+/* Stili responsive */
+@media (max-width: 768px) {
+  .statuto-hero {
+    padding: 3rem 0 2rem;
+  }
+  
+  .statuto-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .statuto-content-section {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .statuto-content-section h2 {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .statuto-content-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    margin-top: 2rem;
+  }
+  
+  .statuto-content-section p {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+  }
+  
+  .pdf-viewer {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statuto-hero {
+    padding: 2rem 0 1.5rem;
+  }
+  
+  .statuto-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .statuto-content-section {
+    padding: 2rem 0;
+  }
+  
+  .statuto-content-section h2 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .statuto-content-section h3 {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .statuto-content-section p {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .pdf-viewer {
+    height: 350px;
+  }
+}

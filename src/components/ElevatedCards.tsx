@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'
@@ -93,11 +93,28 @@ const ElevatedCards: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = useState<any | null>(null);
   const [popupPos, setPopupPos] = useState<{top: number, left: number} | null>(null);
   const calendarRef = useRef<HTMLDivElement>(null);
+  const popupRef = useRef<HTMLDivElement>(null);
+  // Chiudi popup se clicchi fuori dal calendario e dal popup
+  useEffect(() => {
+    if (!selectedEvent) return;
+    const handleClick = (e: MouseEvent) => {
+      const calendarNode = calendarRef.current;
+      const popupNode = popupRef.current;
+      if (
+        popupNode && !popupNode.contains(e.target as Node) &&
+        calendarNode && !calendarNode.contains(e.target as Node)
+      ) {
+        setSelectedEvent(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [selectedEvent]);
   // Stato per il mese visualizzato
   const [currentMonth, setCurrentMonth] = useState<Date>(new Date());
 
   return (
-    <section className="elevated-cards" style={{ overflowX: 'hidden', maxWidth: '100vw', width: '100%' }}>
+  <section className="elevated-cards overlap-chi-siamo" style={{ overflowX: 'hidden', maxWidth: '100vw', width: '100%', position: 'relative', zIndex: 10, marginTop: '-60px', paddingTop: '0', paddingBottom: '1.2rem', marginBottom: '-48px' }}>
       <div className="cards-container" style={{ display: 'flex', gap: '2rem', alignItems: 'stretch', flexWrap: 'wrap' }}>
         {/* Prima card */}
         <div 
@@ -247,19 +264,24 @@ const ElevatedCards: React.FC = () => {
                 }}
                 prev2Label={null}
                 next2Label={null}
+                prevLabel={null}
+                nextLabel={null}
                 calendarType="iso8601"
                 locale="it-IT"
-                // Nascondi la label del mese integrata
                 navigationLabel={() => null}
+                // Disabilita la navigazione mese tramite click sulle aree vuote
+                onClickMonth={(_: Date, event: React.MouseEvent<HTMLButtonElement>) => event.preventDefault()}
                 // Aggiorna il mese visualizzato quando si cambia mese
                 onActiveStartDateChange={({ activeStartDate }) => {
                   if (activeStartDate) setCurrentMonth(activeStartDate);
+                  setSelectedEvent(null);
+                  setSelectedDate(null);
                 }}
               />
               {/* Popup dettagli evento sopra la cella */}
               {selectedEvent && popupPos && createPortal(
-                <>
-                  {/* Overlay invisibile solo per chiusura */}
+                <div>
+                  {/* Overlay invisibile solo per chiusura, lasciato per compatibilità mobile */}
                   <div
                     style={{
                       position: 'fixed',
@@ -271,11 +293,9 @@ const ElevatedCards: React.FC = () => {
                       zIndex: 9,
                       cursor: 'pointer',
                     }}
-                    onClick={() => {
-                      setSelectedEvent(null);
-                    }}
                   />
                   <div
+                    ref={popupRef}
                     style={{
                       position: 'absolute',
                       top: popupPos.top,
@@ -322,7 +342,7 @@ const ElevatedCards: React.FC = () => {
                       </tbody>
                     </table>
                   </div>
-                </>,
+                </div>,
                 document.body
               )}
             </div>
@@ -341,6 +361,7 @@ const ElevatedCards: React.FC = () => {
             }
             body { overflow-x: hidden !important; }
             .elevated-cards { overflow-x: hidden; max-width: 100vw; width: 100%; }
+
             .elevated-cards .card-with-image { overflow-x: hidden !important; max-width: 100% !important; }
             .elevated-cards .card-with-image > div { overflow-x: hidden !important; max-width: 100% !important; width: 100% !important; }
             .elevated-cards .card-with-image .react-calendar { width: 100% !important; max-width: 100% !important; min-width: 0 !important; }
@@ -361,6 +382,13 @@ const ElevatedCards: React.FC = () => {
               border: none;
               margin: 2px 4px;
             }
+            /* Disabilita il puntatore e l'hover sulle aree vuote della navigation (dove c'erano le frecce) */
+            .react-calendar__navigation__arrow,
+            .react-calendar__navigation__label {
+              pointer-events: none !important;
+              cursor: default !important;
+              opacity: 0.5;
+            }
             .react-calendar__navigation button:enabled:hover, .react-calendar__navigation button:enabled:focus {
               background: #eaf6fb;
             }
@@ -370,7 +398,9 @@ const ElevatedCards: React.FC = () => {
               font-size: 1.18rem;
               padding: 0.2em 0.3em 0.7em 0.3em;
               height: 60px;
+              min-height: 60px;
               vertical-align: top;
+              margin-top: 40px;
             }
             /* Mostra il numero normale solo nei giorni senza evento */
             .react-calendar__month-view__days__day > abbr {
@@ -396,14 +426,15 @@ const ElevatedCards: React.FC = () => {
               margin-bottom: 2px;
             }
             .card, .card-with-image {
-              /* Rimuovi eventuali animazioni e scaling */
+              /* Rimuovi eventuali animazioni, scaling e ombra */
               transition: none !important;
               animation: none !important;
+              box-shadow: none !important;
             }
             .card:hover, .card-with-image:hover, .card:focus, .card-with-image:focus {
               /* Nessun effetto hover di scaling o allargamento */
               transform: none !important;
-              /* L'ombra resta invariata */
+              box-shadow: none !important;
             }
             .react-calendar:hover, .react-calendar:focus {
               transform: none !important;
@@ -426,6 +457,19 @@ const ElevatedCards: React.FC = () => {
               font-weight: 700;
               color: #145a8a;
               font-size: 1.15rem;
+            }
+            .overlap-chi-siamo {
+              position: relative;
+              z-index: 10;
+              margin-top: -60px;
+              padding-top: 0;
+              padding-bottom: 1.2rem;
+              margin-bottom: -48px;
+            }
+            @media (max-width: 700px) {
+              .overlap-chi-siamo {
+                margin-top: -30px;
+              }
             }
           `}</style>
         </div>

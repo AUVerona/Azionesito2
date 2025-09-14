@@ -163,6 +163,146 @@
   font-size: 1.1rem;
 }
 
+/* Sezione Statuto Preview */
+.statuto-preview {
+  padding: 5rem 0;
+  background: #FF6B6B;
+  color: white;
+  position: relative;
+  min-height: 400px;
+}
+
+.statuto-preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.statuto-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.statuto-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.statuto-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.statuto-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.highlight-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.highlight-text h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.highlight-text p {
+  font-size: 0.95rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.statuto-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.document-preview {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  color: #333;
+}
+
+.document-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.doc-icon {
+  font-size: 1.5rem;
+}
+
+.doc-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2E86C1;
+}
+
+.document-content {
+  margin-bottom: 1.5rem;
+}
+
+.doc-line {
+  height: 8px;
+  background: linear-gradient(90deg, #e9ecef 0%, #f8f9fa 100%);
+  border-radius: 4px;
+  margin-bottom: 0.8rem;
+}
+
+.doc-line.short {
+  width: 60%;
+}
+
+.doc-line.medium {
+  width: 80%;
+}
+
+.document-footer {
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.doc-status {
+  font-size: 0.9rem;
+  color: #28a745;
+  font-weight: 600;
+}
+
 /* Sezione Servizi */
 .services {
   padding: 5rem 0;
@@ -526,6 +666,21 @@
     text-align: center;
   }
   
+  .statuto-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .statuto-text h2 {
+    font-size: 2rem;
+  }
+  
+  .document-preview {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
   .about-stats {
     justify-content: center;
   }
@@ -641,6 +796,27 @@
 
 /* Mobile piccoli */
 @media (max-width: 480px) {
+  .statuto-text h2 {
+    font-size: 1.8rem;
+  }
+  
+  .statuto-preview {
+    padding: 3rem 0;
+  }
+  
+  .statuto-highlights {
+    gap: 1rem;
+  }
+  
+  .highlight {
+    padding: 0.8rem;
+  }
+  
+  .document-preview {
+    width: 250px;
+    padding: 1.5rem;
+  }
+  
   .services h2 {
     font-size: 1.8rem;
     margin-bottom: 2rem;

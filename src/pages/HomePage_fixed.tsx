@@ -30,7 +30,7 @@ const HomePage: React.FC = () => {
           right: 0,
           bottom: 0,
           backgroundColor: 'rgba(255, 255, 255, 0.85)',
-          zIndex: 1
+          zIndex: 0
         }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="about-content">
@@ -69,147 +69,38 @@ const HomePage: React.FC = () => {
       {/* Sezione Servizi */}
       <section className="services">
         <div className="container">
-          <h2>I nostri Obiettivi</h2>
+          <h2>Le Nostre Battaglie</h2>
           <div className="services-grid">
             <div className="service-card">
-              <div className="service-icon">⏰</div>
-              <h3>Ottimizare gli orari</h3>
-              <p>Pause infinite e orari impossibili? Cambiamo le cose insieme!
-               Con Azione Universitaria proponiamo:</p>
+              <div className="service-icon">🏠</div>
+              <h3>PIÙ ALLOGGI PER GLI STUDENTI</h3>
+              <p>Gli affitti non sono mai stati così alti e le città universitarie hanno smesso di essere a misura di studente.</p>
               <ul>
-                <li>Lezioni senza pause eccessive.</li>
-                <li>Fine delle lezioni entro orari ragionevoli.</li>
-                <li>Pianificazione più intelligente per evitare inutili perdite di tempo.</li>
+                <li>Risposte concrete sul caro affitti</li>
+                <li>Aumento degli alloggi per residenze universitarie</li>
+                <li>Tutela degli studenti fuorisede</li>
               </ul>
             </div>
             
             <div className="service-card">
-              <div className="service-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
-              <h3>Organizziamo il futuro del CLA pensando a TE!</h3>
-              <p>Con Azione Universitaria vogliamo:</p>
+              <div className="service-icon">�</div>
+              <h3>AGEVOLAZIONI SUI TRASPORTI</h3>
+              <p>Vogliamo un sistema di trasporto pubblico efficiente ed accessibile a tutti gli studenti pendolari e fuori sede.</p>
               <ul>
-                <li>Sessioni d'esame più ampie e flessibili.</li>
-                <li>Aumento valore della certificazione</li>
-                <li>Collaborazioni inter-corso</li>
+                <li>Tariffe agevolate per studenti</li>
+                <li>Convenzioni con trasporti pubblici</li>
+                <li>Accessibilità per pendolari e fuorisede</li>
               </ul>
             </div>
             
             <div className="service-card">
-              <div className="service-icon">📚</div>
-              <h3>Sessioni d'esame più organizzate, meno stress!</h3>
-              <p>Basta esami sovrapposti o sessioni ingestibili! Con Azione Universitaria proponiamo:</p>
+              <div className="service-icon">�️</div>
+              <h3>POTENZIAMENTO INFRASTRUTTURE</h3>
+              <p>L'università necessita di infrastrutture all'altezza delle esigenze degli studenti e della ricerca.</p>
               <ul>
-                <li>Preappelli obbligatori per suddividere il carico.</li>
-                <li>Sessioni più ampie e flessibili.</li>
-                <li>Zero sovrapposizioni tra date d'esame</li>
-              </ul>
-            </div>
-            
-            <div className="service-card">
-              <div className="service-icon">🎉</div>
-              <h3>Organizziamo i seminari universitari pensando a TE!</h3>
-              <p>Con Azione Universitaria vogliamo:</p>
-              <ul>
-                <li>Programmazione senza sovrapposizioni con le lezioni.</li>
-                <li>Accessibilità per studenti lavoratori, pendolari e fuoricorso.</li>
-                <li>Temi innovativi e interdisciplinari.</li>
-                <li>Comunicazione chiara e tempestiva su tutte le opportunità.</li>
-              </ul>
-            </div>
-            
-            <div className="service-card">
-              <div className="service-icon">🤝</div>
-              <h3>Rappresentanza studentesca efficace</h3>
-              <p>La tua voce conta! Con Azione Universitaria assicuriamo:</p>
-              <ul>
-                <li>Rappresentanti attivi e presenti in tutti gli organi.</li>
-                <li>Comunicazione trasparente delle decisioni prese.</li>
-                <li>Raccolta sistematica di feedback e proposte degli studenti.</li>
-                <li>Dialogo costruttivo con docenti e amministrazione.</li>
-              </ul>
-            </div>
-            
-            <div className="service-card">
-              <div className="service-icon">💡</div>
-              <h3>Innovazione e digitalizzazione</h3>
-              <p>Verso un'università più moderna e tecnologica:</p>
-              <ul>
-                <li>Piattaforme digitali più intuitive e funzionali.</li>
-                <li>App universitaria per gestire tutto dal tuo smartphone.</li>
-                <li>Wifi potenziato in tutti gli edifici universitari.</li>
-                <li>Strumenti digitali per migliorare l'apprendimento.</li>
-              </ul>
-            </div>
-            
-            <div className="service-card">
-              <div className="service-icon">🏢</div>
-              <h3>Miglioramento spazi universitari</h3>
-              <p>Spazi di studio più confortevoli e funzionali:</p>
-              <ul>
-                <li>Aule studio aperte 24/7 durante i periodi d'esame.</li>
-                <li>Spazi relax e socializzazione rinnovati.</li>
-                <li>Postazioni studio individuali e di gruppo.</li>
-                <li>Climatizzazione e illuminazione ottimali.</li>
-              </ul>
-            </div>
-            
-            <div className="service-card">
-              <div className="service-icon">🎯</div>
-              <h3>Orientamento e career service</h3>
-              <p>Supporto per il tuo futuro professionale:</p>
-              <ul>
-                <li>Career day con aziende del territorio.</li>
-                <li>Workshop su CV e colloqui di lavoro.</li>
-                <li>Orientamento per magistrali e specializzazioni.</li>
-                <li>Mentorship con alumni e professionisti.</li>
-              </ul>
-            </div>
-            
-            <div className="service-card">
-              <div className="service-icon">🌱</div>
-              <h3>Sostenibilità ambientale</h3>
-              <p>Un'università più verde e responsabile:</p>
-              <ul>
-                <li>Raccolta differenziata potenziata in tutte le sedi.</li>
-                <li>Distributori d'acqua per ridurre la plastica.</li>
-                <li>Mobilità sostenibile con bike sharing universitario.</li>
-                <li>Eventi di sensibilizzazione ambientale.</li>
-              </ul>
-            </div>
-            
-            <div className="service-card">
-              <div className="service-icon">🤗</div>
-              <h3>Inclusività e benessere</h3>
-              <p>Un'università accogliente per tutti:</p>
-              <ul>
-                <li>Servizi di supporto psicologico gratuiti.</li>
-                <li>Abbattimento barriere architettoniche.</li>
-                <li>Politiche anti-discriminazione attive.</li>
-                <li>Gruppi di supporto per studenti internazionali.</li>
-              </ul>
-            </div>
-            
-            <div className="service-card">
-              <div className="service-icon">🍕</div>
-              <h3>Servizi alimentari migliorati</h3>
-              <p>Mangiare meglio in università:</p>
-              <ul>
-                <li>Mense con menù più vari e di qualità.</li>
-                <li>Prezzi accessibili per tutti gli studenti.</li>
-                <li>Opzioni vegetariane e vegane sempre disponibili.</li>
-                <li>Distributori automatici con cibi sani.</li>
-              </ul>
-            </div>
-            
-            <div className="service-card">
-              <div className="service-icon">🏆</div>
-              <h3>Riconoscimenti e premi</h3>
-              <p>Valorizzare l'eccellenza studentesca:</p>
-              <ul>
-                <li>Borse di studio al merito ampliate.</li>
-                <li>Riconoscimenti per progetti innovativi.</li>
-                <li>Premi per tesi di laurea eccellenti.</li>
-                <li>Opportunità di pubblicazione e ricerca.</li>
+                <li>Basta aule sovraffollate e spazi inadeguati</li>
+                <li>Piano di investimenti per atenei accessibili</li>
+                <li>Infrastrutture innovative e moderne</li>
               </ul>
             </div>
           </div>
@@ -226,9 +117,9 @@ const HomePage: React.FC = () => {
                 <div className="avatar-icon">👨‍💼</div>
               </div>
               <div className="leader-info">
-                <h3>Marco Rossi</h3>
+                <h3>Marica Peroni</h3>
                 <h4>Presidente</h4>
-                <p>Studente di Giurisprudenza al quarto anno, Marco coordina le attività dell'associazione e rappresenta gli studenti negli organi universitari. Appassionato di diritto costituzionale e attivismo studentesco, si dedica al miglioramento dell'esperienza universitaria per tutti gli studenti.</p>
+                <p>Studente di Studi strategici, Marica coordina le attività dell'associazione e rappresenta gli studenti negli organi universitari. Appassionata di diritto costituzionale e attivismo studentesco, si dedica al miglioramento dell'esperienza universitaria per tutti gli studenti.</p>
               </div>
             </div>
             
@@ -237,9 +128,9 @@ const HomePage: React.FC = () => {
                 <div className="avatar-icon">👩‍💻</div>
               </div>
               <div className="leader-info">
-                <h3>Sofia Bianchi</h3>
+                <h3>Enzo Russo</h3>
                 <h4>Vice Presidente</h4>
-                <p>Laureanda in Economia e Management, Sofia si occupa della gestione organizzativa e dei rapporti con le aziende partner. Esperta in project management e networking professionale, coordina eventi e iniziative per lo sviluppo della carriera studentesca.</p>
+                <p>Laureando in Servizi Giuridici, Enzo si occupa della gestione organizzativa e dei rapporti con le aziende partner. Esperto in project management e networking professionale, coordina eventi e iniziative per lo sviluppo della carriera studentesca.</p>
               </div>
             </div>
           </div>
@@ -283,24 +174,6 @@ const HomePage: React.FC = () => {
               </div>
             </div>
             
-            <div className="event-card">
-              <div className="event-date">
-                <span className="day">29</span>
-                <span className="month">AGO</span>
-              </div>
-              <div className="event-info">
-                <h3>Aperitivo di Fine Estate</h3>
-                <p>Momento di socializzazione per concludere l'estate e prepararsi al nuovo anno accademico.</p>
-                <div className="event-details">
-                  <span>📍 Terrazza UniBar</span>
-                  <span>🕒 18:30 - 21:00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="events-cta">
-            <p>Vuoi rimanere aggiornato su tutti i nostri eventi?</p>
-            <Link to="/social" className="btn-secondary">Seguici sui Social</Link>
           </div>
         </div>
       </section>
@@ -314,12 +187,6 @@ const HomePage: React.FC = () => {
             <div className="cta-buttons">
               <Link to="/unisciti" className="btn-primary large">Iscriviti Ora</Link>
               <Link to="/contatti" className="btn-outline large">Contattaci</Link>
-            </div>
-            <div className="cta-benefits">
-              <span>✓ Iscrizione gratuita</span>
-              <span>✓ Accesso a tutti gli eventi</span>
-              <span>✓ Supporto accademico</span>
-              <span>✓ Network professionale</span>
             </div>
           </div>
         </div>

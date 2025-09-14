@@ -1,298 +1,290 @@
-/* Stili per il form di iscrizione */
-.inscription-form {
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  margin-top: 2rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+/* Stile form a tutta pagina copiando dal sito originale */
+.contatti-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
 }
 
-.inscription-form h2 {
+.contatti-page main {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Titolo principale */
+.contatti-page h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
   color: #333;
-  margin-bottom: 0.5rem;
+  margin: 0 0 2rem 0;
   text-align: center;
+  line-height: 1.2;
 }
 
-.inscription-form > p {
-  text-align: center;
-  color: #666;
-  margin-bottom: 2rem;
+/* Form Section a tutta pagina */
+.form-section {
+  width: 100%;
 }
 
+.contact-form {
+  width: 100%;
+  margin: 0;
+}
+
+/* Layout a due colonne per le prime righe */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #333;
+.form-group.full-width {
+  margin-bottom: 1.5rem;
 }
 
+/* Stile campi copiato dal sito originale */
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 0.75rem;
-  border: 2px solid #e1e5e9;
-  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
-  font-family: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  color: #495057;
+  line-height: 1.5;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  background-color: #ffffff;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  padding-right: 3rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .form-group textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 120px;
+  font-family: inherit;
 }
 
-.form-buttons {
+/* Privacy checkbox con stile originale */
+.privacy-group {
+  margin: 2rem 0 1.2rem 0;
   display: flex;
+  align-items: flex-start;
   gap: 1rem;
+}
+
+.privacy-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #495057;
+}
+
+.privacy-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  margin: 0;
+  margin-top: 2px;
+  border: 2px solid #dee2e6;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.privacy-group input[type="checkbox"]:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.privacy-group input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.privacy-group a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.privacy-group a:hover {
+  text-decoration: underline;
+}
+
+/* Google reCAPTCHA */
+.recaptcha-group {
+  margin: 1.5rem 0;
+  display: flex;
   justify-content: center;
-  margin-top: 2rem;
 }
 
-.cta-buttons {
-  text-align: center;
+.recaptcha-group > div {
+  transform-origin: center;
 }
 
-.cta-button {
-  padding: 1rem 2rem;
+/* Submit button copiato dal sito originale */
+.submit-button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
+  margin-top: 0.8rem;
+  font-family: inherit;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
-.cta-button.primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+.submit-button:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
-.cta-button.primary:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-}
-
-.cta-button.primary:disabled {
-  opacity: 0.7;
+.submit-button:disabled {
+  background-color: #6c757d;
   cursor: not-allowed;
+  opacity: 0.65;
   transform: none;
+  box-shadow: none;
 }
 
-.cta-button.secondary {
-  background: #f8f9fa;
-  color: #495057;
-  border: 2px solid #dee2e6;
-}
-
-.cta-button.secondary:hover {
-  background: #e9ecef;
-  border-color: #adb5bd;
-}
-
+/* Messages con stile originale */
 .success-message {
-  background: #d4edda;
-  color: #155724;
-  padding: 1rem;
+  background-color: #d1ecf1;
+  color: #0c5460;
+  padding: 1.25rem;
   border-radius: 8px;
-  margin-bottom: 1rem;
-  text-align: center;
-  border: 1px solid #c3e6cb;
+  margin-bottom: 2rem;
+  border: 1px solid #bee5eb;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .error-message {
-  background: #f8d7da;
+  background-color: #f8d7da;
   color: #721c24;
-  padding: 1rem;
+  padding: 1.25rem;
   border-radius: 8px;
-  margin-bottom: 1rem;
-  text-align: center;
+  margin-bottom: 2rem;
   border: 1px solid #f5c6cb;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-/* Responsive */
+/* Responsive design */
 @media (max-width: 768px) {
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  
-  .inscription-form {
-    padding: 1.5rem;
-    margin: 1rem;
-  }
-  
-  .form-buttons {
-    flex-direction: column;
-  }
-  
-  .cta-button {
-    width: 100%;
-  }
-}
-.unisciti-page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.unisciti-page main {
-  flex: 1;
-}
-
-.unisciti-hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 6rem 0 4rem;
-  text-align: center;
-}
-
-.unisciti-hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.unisciti-hero p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-.unisciti-content {
-  padding: 4rem 0;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0 4rem;
-}
-
-.benefit-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.benefit-card h3 {
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.benefit-card p {
-  color: #666;
-  line-height: 1.6;
-}
-
-.steps {
-  display: flex;
-  justify-content: space-between;
-  margin: 2rem 0 4rem;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.step {
-  flex: 1;
-  text-align: center;
-  min-width: 250px;
-}
-
-.step-number {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  background: #667eea;
-  color: white;
-  border-radius: 50%;
-  line-height: 50px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.step p {
-  color: #333;
-  font-weight: 500;
-}
-
-.cta-section {
-  text-align: center;
-  background: #f8f9fa;
-  padding: 3rem;
-  border-radius: 10px;
-}
-
-.cta-button {
-  background: #667eea;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 1rem;
-  transition: background 0.3s ease;
-}
-
-.cta-button:hover {
-  background: #5a6fd8;
-}
-
-.cta-section p {
-  color: #666;
-  margin: 0;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .unisciti-hero {
-    padding: 4rem 0 2rem;
-  }
-  
-  .unisciti-hero h1 {
-    font-size: 2rem;
-  }
-  
-  .steps {
-    flex-direction: column;
-    align-items: center;
+  .contatti-page main {
+    padding: 1.5rem 0;
   }
   
   .container {
     padding: 0 1rem;
+    max-width: 100%;
+  }
+  
+  .contatti-page h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Layout mobile - una colonna */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .submit-button {
+    padding: 1.1rem;
+    font-size: 1rem;
+  }
+  
+  /* reCAPTCHA responsive */
+  .recaptcha-group > div {
+    transform: scale(0.85);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contatti-page h1 {
+    font-size: 2rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.9rem 1rem;
+  }
+  
+  .privacy-group label {
+    font-size: 0.9rem;
+  }
+  
+  /* reCAPTCHA extra small screens */
+  .recaptcha-group > div {
+    transform: scale(0.75);
   }
 }
