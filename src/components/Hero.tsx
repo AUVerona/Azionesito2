@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hero: React.FC = () => {
   return (
-    <section className="hero" style={{ backgroundImage: 'url(/AURORA.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <section className="hero" style={{ backgroundImage: 'url(/Azionesito2/AURORA.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div style={{
         position: 'absolute',
         top: 0,
