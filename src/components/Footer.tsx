@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         {/* Logo Sezione */}
         <div className="footer-section logo-section">
           <img 
-            src="/logo-auvr.png" 
+            src="/Azionesito2/logo-auvr.png" 
             alt="Azione Universitaria"
             className="footer-logo"
           />
