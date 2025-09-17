@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import ChiSiamo from '../components/ChiSiamo'
+// Unificato: contenuto di ChiSiamo inlined in questa pagina
 import Footer from '../components/Footer'
 import './ChiSiamoPage.css'
 
@@ -9,34 +9,85 @@ const ChiSiamoPage: React.FC = () => {
     <div className="chi-siamo-page">
       <Navbar />
       <main>
-        <ChiSiamo />
-        {/* Qui puoi aggiungere altro contenuto specifico per la pagina Chi Siamo */}
-        <section className="chi-siamo-extra">
-          <div className="container">
-            <h2>Le nostre attività</h2>
-            <div className="content-section">
-              <p>
-                Per noi la politica non è solo discussione o rappresentanza: è presenza concreta, quotidiana, 
-                nei corridoi e nelle aule, accanto agli studenti. Vivere l'università significa esserci, 
-                condividere tempo ed energie per costruire qualcosa insieme.
+        <section className="chi-siamo" id="chi-siamo">
+          <div className="chi-siamo-container">
+            <h2>Chi Siamo</h2>
+            <div className="chi-siamo-content">
+              <div className="chi-siamo-text">
+                <h3>Il nostro simbolo</h3>
+                <div className="simbolo-item">
+                  <h4>📚 LIBRO</h4>
+                  <p>
+                    Il libro rappresenta l'apprendimento e la crescita personale: lo strumento con cui lo studente affronta sfide, supera ostacoli e costruisce il proprio futuro. È il simbolo della volontà di migliorarsi e realizzare i propri sogni, forgiando la propria identità nel mondo.
+                  </p>
+                </div>
+                <div className="simbolo-item">
+                  <h4>🎓 FELUCA</h4>
+                  <p>
+                    La feluca rappresenta l'altra metà dell'anima di uno studente: se il libro simboleggia lo studio e l'impegno quotidiano, la feluca incarna la partecipazione civile, la voglia di mettersi in gioco anche fuori dall'aula. Diventata nel corso del XIV secolo il copricapo dei clerici vagantes, giovani che viaggiavano in Europa per formarsi, si è poi trasformata nel tempo nel simbolo delle associazioni goliardiche e degli atenei italiani.
+                  </p>
+                </div>
+              </div>
+              <div className="chi-siamo-image">
+                <img 
+                  src="https://tesseramenti.azioneuniversitaria.it/images/logo_au.png" 
+                  alt="Logo Azione Universitaria Verona"
+                />
+              </div>
+            </div>
+
+            <div className="battaglie-section">
+              <h2>LE NOSTRE BATTAGLIE</h2>
+              <p className="battaglie-intro">
+                Da sempre ci impegnamo per un università diversa, migliore di giorno in giorno. 
+                Le nostre proposte sono strutturali ma concrete; eccone alcune:
               </p>
-              <p>
-                La militanza nasce proprio da questo: rinunciare a qualche ora di studio per preparare una grafica, 
-                organizzare un banchetto o passare una notte a dipingere striscioni. In quei momenti <em>non esistono 
-                ruoli o differenze</em>: tutti mettono a disposizione le proprie capacità, con lo stesso impegno e lo 
-                stesso entusiasmo. Ogni gesto, anche il più semplice, diventa parte di un percorso comune.
-              </p>
-              <p>
-                Realizzare uno striscione, preparare volantini o montare un gazebo non sono solo attività pratiche: 
-                sono occasioni di comunità, di confronto e di amicizia. Sono i momenti in cui la fatica si trasforma 
-                in forza collettiva e in cui nasce la consapevolezza di far parte di qualcosa di più grande.
-              </p>
-              <p>
-                Militare, per noi, significa assumersi una responsabilità con coscienza e passione. Significa 
-                mettersi al servizio degli studenti e dell'università, senza mai perdere il sorriso, perché ciò 
-                che ci muove va ben oltre i voti o le elezioni. È <em>incarnare valori condivisi</em>, vivere la dimensione 
-                comunitaria giorno dopo giorno e camminare insieme verso un futuro migliore.
-              </p>
+            </div>
+
+            <div className="highlights">
+              <div className="highlight-item">
+                <h4>🏠 PIÙ ALLOGGI PER GLI STUDENTI</h4>
+                <p>Gli affitti non sono mai stati così alti e le città universitarie hanno smesso di essere a misura di studente. Vogliamo risposte sul tema del caro affitti che colpisce gli studenti fuorisede e un aumento degli alloggi destinati a residenze universitarie.</p>
+              </div>
+              <div className="highlight-item">
+                <h4>🚌 AGEVOLAZIONI SUI TRASPORTI</h4>
+                <p>Vogliamo un sistema di trasporto pubblico efficiente ed accessibile a tutti gli studenti pendolari e fuori sede. Soprattutto tramite tariffe agevolate ottenute con convenzioni pensate per gli studenti universitari.</p>
+              </div>
+              <div className="highlight-item">
+                <h4>🏗️ POTENZIAMENTO INFRASTRUTTURE</h4>
+                <p>L'università necessita di infrastrutture all'altezza delle esigenze anche degli studenti e della ricerca. Basta con le aule sovraffollate e spazi inadeguati. Vogliamo un piano di investimenti per atenei più accessibili e innovativi.</p>
+              </div>
+            </div>
+
+            {/* Continuazione contenuti specifici della pagina */}
+            <div className="au-blue-band">
+              <div className="chi-siamo-container">
+                <h2>Le nostre attività</h2>
+                <div className="content-section">
+                  <p>
+                    Per noi la politica non è solo discussione o rappresentanza: è presenza concreta, quotidiana, 
+                    nei corridoi e nelle aule, accanto agli studenti. Vivere l'università significa esserci, 
+                    condividere tempo ed energie per costruire qualcosa insieme.
+                  </p>
+                  <p>
+                    La militanza nasce proprio da questo: rinunciare a qualche ora di studio per preparare una grafica, 
+                    organizzare un banchetto o passare una notte a dipingere striscioni. In quei momenti non esistono 
+                    ruoli o differenze: tutti mettono a disposizione le proprie capacità, con lo stesso impegno e lo 
+                    stesso entusiasmo. Ogni gesto, anche il più semplice, diventa parte di un percorso comune.
+                  </p>
+                  <p>
+                    Realizzare uno striscione, preparare volantini o montare un gazebo non sono solo attività pratiche: 
+                    sono occasioni di comunità, di confronto e di amicizia. Sono i momenti in cui la fatica si trasforma 
+                    in forza collettiva e in cui nasce la consapevolezza di far parte di qualcosa di più grande.
+                  </p>
+                  <p>
+                    Militare, per noi, significa assumersi una responsabilità con coscienza e passione. Significa 
+                    mettersi al servizio degli studenti e dell'università, senza mai perdere il sorriso, perché ciò 
+                    che ci muove va ben oltre i voti o le elezioni. È incarnare valori condivisi, vivere la dimensione 
+                    comunitaria giorno dopo giorno e camminare insieme verso un futuro migliore.
+                  </p>
+                </div>
+              </div>
             </div>
             
             <h2>La storia di Azione Universitaria Verona</h2>
@@ -129,7 +180,7 @@ const ChiSiamoPage: React.FC = () => {
             </div>
 
             <div className="content-section call-to-action">
-              <p style={{textAlign: 'center', fontSize: '1.2rem', fontWeight: '600', color: '#1a365d', marginTop: '3rem'}}>
+              <p style={{textAlign: 'center', fontSize: '1.2rem', color: '#1a365d', marginTop: '3rem'}}>
                 <strong>Beh, che aspetti?</strong><br />
                 <em>Sei pronto ad entrare in Azione?</em>
               </p>

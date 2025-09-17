@@ -4,25 +4,86 @@
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
+  /* Palette AU (scoped) */
+  --au-blue: #1a365d;      /* Titoli */
+  --au-green: #28a745;     /* Evidenziazione */
+  --au-teal: #20c997;      /* Evidenziazione sfumata */
+  --au-text: #333333;      /* Testo */
+  --au-muted: #666666;     /* Testo secondario */
 }
 
 .chi-siamo-page main {
   flex: 1;
+  padding: 0;
+}
+
+/* Banda blu a tutta larghezza per "Le nostre attività" */
+.au-blue-band {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  background: #1e3a8a;
+  color: #ffffff;
+  padding: 4rem 0;
+  overflow-x: hidden;
+}
+
+.au-blue-band h2 {
+  color: #ffffff;
+  background: none !important; /* niente evidenziazione verde su sfondo blu */
+  text-align: left;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.au-blue-band p,
+.au-blue-band em,
+.au-blue-band strong,
+.au-blue-band b {
+  color: #ffffff;
+}
+
+.au-blue-band em {
+  color: #ffffff;
+}
+
+.au-blue-band p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.au-blue-band a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Spazio netto dopo la banda blu prima del prossimo titolo */
+.chi-siamo .au-blue-band + h2 {
+  margin-top: 5rem;
 }
 
 /* Stili per il componente ChiSiamo nella pagina */
 .chi-siamo-page .chi-siamo {
   background-color: #ffffff;
-  padding: 4rem 0;
+  padding: 4rem 0 1rem; /* riduco il padding inferiore per unire i blocchi */
 }
 
 .chi-siamo-page .chi-siamo h2 {
   position: relative;
   display: inline-block;
   font-size: 3rem;
-  font-weight: 700;
-  color: #1a365d;
-  margin-bottom: 3rem;
+  font-weight: 500;
+  color: var(--au-blue);
+  letter-spacing: 0.3px;
+  margin-bottom: 2rem;
+  background: linear-gradient(180deg, transparent 65%, rgba(40, 167, 69, 0.22) 65%, rgba(32, 201, 151, 0.22) 100%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 0.15rem 0;
 }
 
 /* Evidenziazione verde sbiadita solo per titoli specifici */
@@ -43,23 +104,67 @@
   padding: 0.2rem 0 !important;
 }
 
+/* Tipografia coerente */
+.chi-siamo-page p {
+  color: #666; /* coerente con .chi-siamo-text p */
+  line-height: 1.6;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.chi-siamo-page em {
+  font-style: italic;
+  color: #2E86C1;
+}
+
+.chi-siamo-page strong,
+.chi-siamo-page b {
+  font-weight: 400; /* normal */
+  color: inherit;
+}
+
+.chi-siamo-page .battaglie-intro {
+  color: var(--au-muted);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+/* Card evidenziate in stile AU */
+.chi-siamo-page .highlights {
+  gap: 2rem;
+  margin-bottom: 3.5rem; /* più spazio prima del titolo successivo */
+}
+.chi-siamo-page .highlight-item {
+  border-top: 4px solid var(--au-green);
+  background: #f8fafc;
+}
+.chi-siamo-page .highlight-item h4 {
+  color: var(--au-blue);
+  font-weight: 500;
+}
+
+/* Aumenta la distanza tra le card e "Le nostre attività" */
+.chi-siamo-page .chi-siamo .highlights + h2 {
+  margin-top: 4rem;
+}
+
 .chi-siamo-extra {
-  padding: 4rem 0;
+  padding: 6rem 0 4rem; /* aumentato padding top per spaziatura maggiore */
   background-color: #ffffff;
 }
 
 .chi-siamo-extra .container {
-  max-width: 800px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 0.875rem; /* allinea ai margini homepage ridotti */
 }
 
 .chi-siamo-extra h2 {
   font-size: 2rem;
-  font-weight: 700;
-  color: #1a365d;
-  margin-bottom: 2rem;
-  margin-top: 3rem;
+  font-weight: 500;
+  color: var(--au-blue);
+  margin-bottom: 1.25rem;
+  margin-top: 1.75rem;
   line-height: 1.3;
   position: relative;
   display: inline-block;
@@ -67,11 +172,16 @@
 
 .chi-siamo-extra h3 {
   font-size: 1.4rem;
-  font-weight: 600;
-  color: #2E86C1;
+  font-weight: 500;
+  color: #2E86C1; /* blu acceso coerente con AU */
   margin-bottom: 1.5rem;
-  margin-top: 2.5rem;
+  margin-top: 3rem; /* più spazio prima di ogni attività */
   line-height: 1.4;
+}
+
+/* Evita grassetto dai default in App.css per i sottotitoli del blocco intro */
+.chi-siamo-page .chi-siamo-text h3 {
+  font-weight: 500;
 }
 
 .chi-siamo-extra h2:first-of-type {
@@ -79,17 +189,18 @@
 }
 
 .chi-siamo-extra p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #333;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--au-text);
   margin-bottom: 1.5rem;
   text-align: justify;
   font-weight: normal; /* Assicura peso normale */
 }
 
-.chi-siamo-extra p strong {
-  font-weight: 700;
-  color: #1a365d;
+.chi-siamo-extra p strong,
+.chi-siamo-extra p b {
+  font-weight: 400; /* normal */
+  color: inherit;
 }
 
 .chi-siamo-extra p em {
@@ -99,7 +210,17 @@
 }
 
 .content-section {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem; /* più spazio dopo ogni attività */
+}
+
+/* Spazio extra tra un blocco attività e il titolo successivo */
+.chi-siamo-extra .content-section + h3 {
+  margin-top: 3.25rem;
+}
+
+/* Spazio extra tra sezioni principali: dopo il testo di una sezione, prima del prossimo h2 */
+.chi-siamo-extra .content-section + h2 {
+  margin-top: 4rem;
 }
 
 .call-to-action {
@@ -135,13 +256,18 @@
   .chi-siamo-extra h3 {
     font-size: 1.2rem;
     margin-bottom: 1.2rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem; /* mobile: più respiro tra attività */
   }
   
   .chi-siamo-extra p {
     font-size: 1rem;
     line-height: 1.7;
     text-align: left;
+  }
+
+  /* Mobile: un po' meno spazio ma comunque evidente */
+  .chi-siamo-extra .content-section + h2 {
+    margin-top: 3rem;
   }
 }
 
@@ -161,7 +287,7 @@
   
   .chi-siamo-extra h3 {
     font-size: 1.1rem;
-    margin-top: 1.5rem;
+    margin-top: 2rem; /* small: più respiro tra attività */
   }
   
   .chi-siamo-extra p {

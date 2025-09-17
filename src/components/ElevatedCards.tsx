@@ -135,7 +135,7 @@ const ElevatedCards: React.FC = () => {
           style={{ 
             minHeight: 400, 
             flex: '3 1 600px', 
-            maxWidth: '1000px', 
+            maxWidth: '1400px', 
             width: '100%', 
             display: 'flex', 
             flexDirection: 'column', 
