@@ -38,3 +38,54 @@
 @media (max-width: 768px) {
   .pdf-frame { height: 100vh; }
 }
+
+/* Two-page PDF viewer styles */
+.two-page-viewer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tpv-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.tpv-toolbar button {
+  border: 1px solid #e1e5ea;
+  background: white;
+  border-radius: 8px;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+
+.tpv-info {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.tpv-zoom { display: flex; gap: 0.25rem; }
+
+.tpv-spread {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  overflow: auto;
+  height: calc(100vh - 60px);
+}
+
+.tpv-page {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  background: white;
+}
+
+@media (max-width: 900px) {
+  .tpv-spread {
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 100px);
+  }
+}

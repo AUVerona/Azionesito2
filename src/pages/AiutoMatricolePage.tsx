@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { getImagePath } from '../utils/paths'
+import TwoPagePdfViewer from '../components/TwoPagePdfViewer'
 import './AiutoMatricolePage.css'
 import '../styles/globalPageStyles.css'
 
@@ -25,13 +26,7 @@ const AiutoMatricolePage: React.FC = () => {
       <main>
         <div className="container global-page-container">
           <div className="pdf-wrapper">
-            <iframe
-              ref={pdfRef}
-              className="pdf-frame"
-              src={`${getImagePath('ILMANUALE.pdf')}#toolbar=0&navpanes=0&scrollbar=1&view=Fit&zoom=page-fit`}
-              title="Manuale Matricole"
-              loading="lazy"
-            />
+            <TwoPagePdfViewer src={getImagePath('ILMANUALE.pdf')} />
           </div>
         </div>
       </main>
