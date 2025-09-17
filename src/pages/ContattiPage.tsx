@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import './ContattiPage.css'
+import '../styles/globalPageStyles.css'
 
 const ContattiPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -131,18 +132,18 @@ Ora: ${new Date().toLocaleTimeString('it-IT')}
     }
   }
   return (
-    <div className="contatti-page">
+    <div className="contatti-page global-page-layout">
       <Navbar />
       <main>
-        <section className="contatti-hero">
-          <div className="container">
+        <section className="contatti-hero global-page-section">
+          <div className="container global-page-container">
             <h1>Contatti</h1>
             <p>Mettiti in contatto con noi per qualsiasi informazione</p>
           </div>
         </section>
         
         <section className="contatti-content">
-          <div className="container">
+          <div className="container global-page-container">
             <div className="contact-grid">
               <div className="contact-info">
                 <h2>Informazioni di Contatto</h2>

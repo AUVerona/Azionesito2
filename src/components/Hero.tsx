@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Hero: React.FC = () => {
   return (
@@ -12,16 +13,22 @@ const Hero: React.FC = () => {
         backgroundColor: 'rgba(0, 0, 0, 0.4)',
         zIndex: 1
       }}></div>
-      <div className="hero-content" style={{ position: 'relative', zIndex: 2 }}>
-        <div className="hero-image">
-          <img src="https://azioneuniversitaria.it/wp-content/uploads/2025/07/hashtag.png" alt="Hashtag" />
-        </div>
-        <div className="hero-text">
-          <h1>
-            VIVE<br />
-            UT VIVAS<br />
-            VIVI
-          </h1>
+      <div className="hero-cta" style={{
+        position: 'relative',
+        zIndex: 2,
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '1rem'
+      }}>
+        <div className="hero-buttons" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <Link to="/info" className="hero-btn secondary" aria-label="Più informazioni">
+            INFO
+          </Link>
+          <Link to="/diventa-volontario" className="hero-btn primary" aria-label="Diventa volontario">
+            Diventa Volontario
+          </Link>
         </div>
       </div>
     </section>

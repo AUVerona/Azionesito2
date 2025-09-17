@@ -2,22 +2,23 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import './StatutoPage.css'
+import '../styles/globalPageStyles.css'
 
 const StatutoPage: React.FC = () => {
   return (
-    <div className="statuto-page">
+    <div className="statuto-page global-page-layout">
       <Navbar />
       <main>
         {/* Sezione Hero semplificata */}
-        <section className="statuto-hero">
-          <div className="container">
+        <section className="statuto-hero global-page-section">
+          <div className="container global-page-container">
             <h1>Statuto e Trasparenza</h1>
           </div>
         </section>
 
         {/* Contenuto principale seguendo il pattern di ChiSiamoPage */}
         <section className="statuto-content-section">
-          <div className="container">
+          <div className="container global-page-container">
             <h2>Il nostro Statuto</h2>
             <div className="content-section">
               <p>

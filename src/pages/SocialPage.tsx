@@ -2,21 +2,22 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import './SocialPage.css'
+import '../styles/globalPageStyles.css'
 
 const SocialPage: React.FC = () => {
   return (
-    <div className="social-page">
+    <div className="social-page global-page-layout">
       <Navbar />
       <main>
-        <section className="social-hero">
-          <div className="container">
+        <section className="social-hero global-page-section">
+          <div className="container global-page-container">
             <h1>I Nostri Social</h1>
             <p>Seguici sui social network per rimanere sempre aggiornato!</p>
           </div>
         </section>
         
         <section className="social-content">
-          <div className="container">
+          <div className="container global-page-container">
             <div className="social-grid">
               <div className="social-card instagram">
                 <div className="social-icon">📸</div>

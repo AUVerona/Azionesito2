@@ -11,6 +11,9 @@ import ContattiPage from './pages/ContattiPage'
 import DonazioniPage from './pages/DonazioniPage'
 import StatutoPage from './pages/StatutoPage'
 import PrivacyPage from './pages/PrivacyPage'
+import AttivitaPage from './pages/AttivitaPage'
+import RappresentanzaPage from './pages/RappresentanzaPage'
+import InfoPage from './pages/InfoPage'
 import './App.css'
 
 function App() {
@@ -35,7 +38,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/chi-siamo" element={<ChiSiamoPage />} />
+  <Route path="/attivita" element={<AttivitaPage />} />
+  <Route path="/rappresentanza" element={<RappresentanzaPage />} />
         <Route path="/unisciti" element={<UniscitiPage />} />
+    <Route path="/diventa-volontario" element={<UniscitiPage />} />
+    <Route path="/info" element={<InfoPage />} />
         <Route path="/aiuto-matricole" element={<AiutoMatricolePage />} />
         <Route path="/contatti" element={<ContattiPage />} />
         <Route path="/donazioni" element={<DonazioniPage />} />

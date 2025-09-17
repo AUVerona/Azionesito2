@@ -5,6 +5,7 @@ import { IMAGES } from '../utils/paths'
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isNavVisible, setIsNavVisible] = useState(true)
+  const [isInfoOpen, setIsInfoOpen] = useState(false)
   const navMenuRef = useRef<HTMLUListElement>(null)
   const hamburgerRef = useRef<HTMLButtonElement>(null)
   const location = useLocation()
@@ -15,6 +16,7 @@ const Navbar: React.FC = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false)
+    setIsInfoOpen(false)
   }
 
   // Funzione per determinare se un link è attivo
@@ -37,6 +39,17 @@ const Navbar: React.FC = () => {
     }
 
     const handleScroll = () => {
+      // Non nascondere la navbar in pagine specifiche
+      if (
+        location.pathname.startsWith('/unisciti') ||
+        location.pathname.startsWith('/attivita') ||
+        location.pathname.startsWith('/rappresentanza') ||
+        location.pathname.startsWith('/info') ||
+        location.pathname.startsWith('/diventa-volontario')
+      ) {
+        setIsNavVisible(true)
+        return
+      }
       const footer = document.querySelector('.footer')
       if (footer) {
         const footerRect = footer.getBoundingClientRect()
@@ -91,15 +104,41 @@ const Navbar: React.FC = () => {
               Home
             </Link>
           </li>
-          <li>
-            <Link 
-              to="/chi-siamo" 
-              onClick={closeMenu}
-              className={isActiveLink('/chi-siamo') ? 'active-link' : ''}
-            >
-              Chi Siamo
-            </Link>
-          </li>
+          {(() => {
+            const isAboutActive =
+              isActiveLink('/chi-siamo') ||
+              isActiveLink('/attivita') ||
+              isActiveLink('/rappresentanza')
+            return (
+              <li
+                className={`has-dropdown ${isInfoOpen ? 'open' : ''}`}
+                onMouseEnter={() => setIsInfoOpen(true)}
+                onMouseLeave={() => setIsInfoOpen(false)}
+              >
+                <button
+                  type="button"
+                  className={`dropdown-toggle ${isAboutActive ? 'active-link' : ''}`}
+                  aria-expanded={isInfoOpen}
+                  aria-haspopup="true"
+                  onClick={() => setIsInfoOpen((v) => !v)}
+                >
+                  Chi Siamo
+                  <span className="caret" aria-hidden="true">▾</span>
+                </button>
+                <ul className="dropdown-menu" role="menu">
+                  <li>
+                    <Link to="/chi-siamo" onClick={closeMenu} className={isActiveLink('/chi-siamo') ? 'active-link' : ''}>Chi Siamo</Link>
+                  </li>
+                  <li>
+                    <Link to="/attivita" onClick={closeMenu} className={isActiveLink('/attivita') ? 'active-link' : ''}>Attività</Link>
+                  </li>
+                  <li>
+                    <Link to="/rappresentanza" onClick={closeMenu} className={isActiveLink('/rappresentanza') ? 'active-link' : ''}>Rappresentanza</Link>
+                  </li>
+                </ul>
+              </li>
+            )
+          })()}
           <li>
             <Link 
               to="/unisciti" 

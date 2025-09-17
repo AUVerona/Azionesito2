@@ -1,0 +1,291 @@
+/* Stili globali per tutte le pagine (eccetto homepage) seguendo il design di ChiSiamoPage */
+
+.global-page-layout {
+  min-height: 100vh;
+  background-color: #ffffff;
+  /* Palette AU (scoped) */
+  --au-blue: #1a365d;      /* Titoli */
+  --au-green: #28a745;     /* Evidenziazione */
+  --au-teal: #20c997;      /* Evidenziazione sfumata */
+  --au-text: #333333;      /* Testo */
+  --au-muted: #666666;     /* Testo secondario */
+}
+
+/* Rimuovo tutti i fix per il navbar che causavano problemi */
+
+.global-page-layout main {
+  padding: 0;
+}
+
+/* Escludi esplicitamente il NAVBAR dagli stili lista globali */
+.global-page-layout nav ul,
+.global-page-layout nav li {
+  padding-left: 0 !important;
+  margin: 0 !important;
+  line-height: normal !important;
+}
+
+/* Container principale con margini coerenti */
+.global-page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 0.875rem; /* allinea ai margini homepage ridotti */
+}
+
+/* Sezione principale della pagina */
+.global-page-section {
+  background-color: #ffffff;
+  padding: 4rem 0 1rem;
+}
+
+/* Stili per tutti i titoli H1 */
+.global-page-layout h1 {
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 700 !important;
+  color: var(--au-blue);
+  letter-spacing: 0.3px;
+  margin-bottom: 2rem;
+  background: linear-gradient(180deg, transparent 45%, rgba(40, 167, 69, 0.22) 45%, rgba(32, 201, 151, 0.22) 55%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 0.15rem 0;
+}
+
+/* Stili per tutti i titoli H2 */
+.global-page-layout h2 {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 700 !important;
+  color: var(--au-blue);
+  margin-bottom: 1.25rem;
+  margin-top: 1.75rem;
+  line-height: 1.3;
+  background: linear-gradient(180deg, transparent 45%, rgba(40, 167, 69, 0.3) 45%, rgba(32, 201, 151, 0.3) 55%) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  padding: 0.2rem 0 !important;
+}
+
+.global-page-layout h2:first-of-type {
+  margin-top: 0;
+}
+
+/* Stili per tutti i titoli H3 */
+.global-page-layout h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #2E86C1; /* blu acceso coerente con AU */
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+  line-height: 1.4;
+}
+
+/* Stili per tutti i titoli H4 */
+.global-page-layout h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--au-blue);
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+/* Tipografia coerente per tutti i paragrafi */
+.global-page-layout p {
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--au-text);
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  font-weight: normal;
+}
+
+.global-page-layout p strong,
+.global-page-layout p b {
+  font-weight: 400; /* normal */
+  color: inherit;
+}
+
+.global-page-layout p em {
+  font-style: italic;
+  color: #2E86C1;
+  font-weight: 500;
+}
+
+/* Stili per le liste */
+.global-page-layout main ul,
+.global-page-layout main ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.global-page-layout main li {
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--au-text);
+  margin-bottom: 0.5rem;
+}
+
+/* Sezioni di contenuto */
+.global-content-section {
+  margin-bottom: 3rem;
+}
+
+/* Spazio extra tra sezioni principali */
+.global-content-section + h2 {
+  margin-top: 4rem;
+}
+
+.global-content-section + h3 {
+  margin-top: 3.25rem;
+}
+
+/* Card evidenziate in stile AU */
+.global-highlights {
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.global-highlight-item {
+  border-top: 4px solid var(--au-green);
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 0 0 8px 8px;
+}
+
+.global-highlight-item h4 {
+  color: var(--au-blue);
+  font-weight: 500;
+  margin-top: 0;
+}
+
+/* Call to action */
+.global-call-to-action {
+  border-top: 2px solid #e9ecef;
+  padding-top: 2rem;
+  margin-top: 3rem;
+}
+
+/* Banda blu a tutta larghezza (se necessaria per alcune pagine) */
+.global-blue-band {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  /* Tonalità blu molto più scura e luccicante ma statica */
+  background: linear-gradient(135deg, #0a1f28 0%, #0f2d38 25%, #144050 50%, #0f2d38 75%, #0a1f28 100%);
+  box-shadow: 
+    inset 0 0 50px rgba(20, 64, 80, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  padding: 4rem 0;
+  overflow-x: hidden;
+}
+
+.global-blue-band h2 {
+  color: #ffffff !important;
+  background: none !important;
+  text-align: left;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 700 !important;
+}
+
+.global-blue-band p,
+.global-blue-band em,
+.global-blue-band strong,
+.global-blue-band b {
+  color: #ffffff !important;
+}
+
+.global-blue-band em {
+  color: #ffffff !important;
+}
+
+.global-blue-band p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.global-blue-band a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Spazio netto dopo la banda blu prima del prossimo titolo */
+.global-page-layout .global-blue-band + h2 {
+  margin-top: 5rem;
+}
+
+/* Stili responsive */
+@media (max-width: 768px) {
+  .global-page-section {
+    padding: 3rem 0;
+  }
+  
+  .global-page-container {
+    padding: 0 1rem;
+  }
+  
+  .global-page-layout h1 {
+    font-size: 2.5rem;
+  }
+  
+  .global-page-layout h2 {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .global-page-layout h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    margin-top: 2.5rem;
+  }
+  
+  .global-page-layout p {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .global-content-section + h2 {
+    margin-top: 3rem;
+  }
+  
+  .global-highlights {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .global-page-layout h1 {
+    font-size: 2rem;
+  }
+  
+  .global-page-section {
+    padding: 2rem 0;
+  }
+  
+  .global-page-layout h2 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .global-page-layout h3 {
+    font-size: 1.1rem;
+    margin-top: 2rem;
+  }
+  
+  .global-page-layout p {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+}

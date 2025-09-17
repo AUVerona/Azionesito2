@@ -21,6 +21,8 @@ const Footer: React.FC = () => {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/chi-siamo">Chi siamo</Link></li>
+            <li><Link to="/attivita">Attività</Link></li>
+            <li><Link to="/rappresentanza">Rappresentanza</Link></li>
             <li><Link to="/unisciti">Unisciti a Noi</Link></li>
             <li><Link to="/aiuto-matricole">Aiuto Matricole</Link></li>
             <li><Link to="/contatti">Contatti</Link></li>

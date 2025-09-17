@@ -2,13 +2,14 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import './PrivacyPage.css'
+import '../styles/globalPageStyles.css'
 
 const PrivacyPage: React.FC = () => {
   return (
-    <div className="privacy-page">
+    <div className="privacy-page global-page-layout">
       <Navbar />
       <main>
-        <div className="container">
+        <div className="container global-page-container">
           <h1>Informativa Privacy</h1>
           
           <div className="privacy-content">

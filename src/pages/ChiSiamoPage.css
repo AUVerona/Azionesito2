@@ -25,30 +25,58 @@
   margin-left: -50vw;
   margin-right: -50vw;
   width: 100vw;
-  background: #1e3a8a;
+  /* Tonalità blu molto più scura e luccicante ma statica */
+  background: linear-gradient(135deg, #0a1f28 0%, #0f2d38 25%, #144050 50%, #0f2d38 75%, #0a1f28 100%);
+  box-shadow: 
+    inset 0 0 50px rgba(20, 64, 80, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.08);
   color: #ffffff;
   padding: 4rem 0;
   overflow-x: hidden;
 }
 
+/* Animazione per effetto luccicante molto più intenso della banda blu */
+@keyframes shimmer {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 25%;
+  }
+  50% {
+    background-position: 200% 50%;
+  }
+  75% {
+    background-position: 100% 75%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
 .au-blue-band h2 {
-  color: #ffffff;
-  background: none !important; /* niente evidenziazione verde su sfondo blu */
+  color: #ffffff !important;
+  /* Evidenziatura verde anche qui (sottolineatura sottile in basso) */
+  background: linear-gradient(180deg, transparent 45%, rgba(40, 167, 69, 0.3) 45%, rgba(32, 201, 151, 0.3) 55%) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  display: inline-block;
   text-align: left;
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  font-weight: 600;
+  font-weight: 700 !important;
+  padding: 0.2rem 0; /* assicura spazio per l'evidenziatura */
 }
 
 .au-blue-band p,
 .au-blue-band em,
 .au-blue-band strong,
 .au-blue-band b {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .au-blue-band em {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .au-blue-band p {
@@ -76,11 +104,11 @@
   position: relative;
   display: inline-block;
   font-size: 3rem;
-  font-weight: 500;
+  font-weight: 700 !important;
   color: var(--au-blue);
   letter-spacing: 0.3px;
   margin-bottom: 2rem;
-  background: linear-gradient(180deg, transparent 65%, rgba(40, 167, 69, 0.22) 65%, rgba(32, 201, 151, 0.22) 100%);
+  background: linear-gradient(180deg, transparent 45%, rgba(40, 167, 69, 0.22) 45%, rgba(32, 201, 151, 0.22) 55%);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   padding: 0.15rem 0;
@@ -98,10 +126,11 @@
 /* Evidenziazione solo per i titoli specifici richiesti */
 .chi-siamo-page .battaglie-section h2, /* LE NOSTRE BATTAGLIE */
 .chi-siamo-page .chi-siamo-extra h2 /* Le nostre attività e La storia di Azione Universitaria Verona */ {
-  background: linear-gradient(180deg, transparent 65%, rgba(40, 167, 69, 0.3) 65%, rgba(32, 201, 151, 0.3) 100%) !important;
+  background: linear-gradient(180deg, transparent 45%, rgba(40, 167, 69, 0.3) 45%, rgba(32, 201, 151, 0.3) 55%) !important;
   background-size: 100% 100% !important;
   background-repeat: no-repeat !important;
   padding: 0.2rem 0 !important;
+  font-weight: 700 !important;
 }
 
 /* Tipografia coerente */

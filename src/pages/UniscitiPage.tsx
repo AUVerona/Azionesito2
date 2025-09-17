@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import './UniscitiPage.css'
+import '../styles/globalPageStyles.css'
 
 const UniscitiPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -123,10 +124,10 @@ const UniscitiPage: React.FC = () => {
   }
   
   return (
-    <div className="contatti-page">
+    <div className="contatti-page global-page-layout">
       <Navbar />
       <main>
-        <div className="container">
+        <div className="container global-page-container">
           <h1>Contattaci</h1>
           
           <section className="form-section">

@@ -2,22 +2,23 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import './DonazioniPage.css'
+import '../styles/globalPageStyles.css'
 
 const DonazioniPage: React.FC = () => {
   return (
-    <div className="donazioni-page">
+    <div className="donazioni-page global-page-layout">
       <Navbar />
       <main>
         {/* Hero Section semplificata */}
-        <section className="donazioni-hero">
-          <div className="container">
+        <section className="donazioni-hero global-page-section">
+          <div className="container global-page-container">
             <h1>Sostieni la nostra Associazione</h1>
           </div>
         </section>
 
         {/* Contenuto principale seguendo il pattern di ChiSiamoPage */}
         <section className="donazioni-content-section">
-          <div className="container">
+          <div className="container global-page-container">
             <h2>Perché donare alla nostra Associazione?</h2>
             <div className="content-section">
               <p>
