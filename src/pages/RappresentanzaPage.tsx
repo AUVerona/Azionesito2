@@ -23,6 +23,8 @@ const RappresentanzaPage: React.FC = () => {
   }, [])
 
   const fotoGruppo = getImagePath('fotodigruppo.jpeg')
+  const fotoSenato = getImagePath('senato-accademico.jpeg')
+  const fotoEnzo = getImagePath('enzo.jpeg')
 
   return (
     <div className="global-page-layout">
@@ -45,36 +47,58 @@ const RappresentanzaPage: React.FC = () => {
 
           <section className="global-content-section">
             <h2 className="reveal-up fx">Senato accademico</h2>
-            <p className="reveal">
-              Il Senato Accademico è l’organo di rappresentanza della comunità universitaria. Collabora con il Rettore ed il Consiglio di Amministrazione all’amministrazione generale dell’ateneo.
-            </p>
-            <p className="reveal">In particolare, il Senato Accademico:</p>
-            <ul className="reveal reveal-delay-1">
-              <li>svolge in generale funzioni di proposta e consultive in materia di didattica, di ricerca e di servizi agli studenti</li>
-              <li>approva lo statuto, il Codice Etico e i regolamenti di ateneo, ad eccezione di quelli relativi all’amministrazione finanziaria e contabile ed al reclutamento del personale</li>
-              <li>nomina il Consiglio di Amministrazione</li>
-            </ul>
-            <figure className="reveal reveal-delay-2" style={{marginTop: '1rem'}}>
-              <img src={fotoGruppo} alt="Foto rappresentante in Senato Accademico (segnaposto)" style={{maxWidth: '480px', width: '100%', borderRadius: '10px'}} />
-              <figcaption style={{color: '#666', marginTop: '.5rem'}}>Foto Marica</figcaption>
-            </figure>
+            <div className="section-split">
+              <div className="section-text">
+                <p className="reveal">
+                  Il Senato Accademico è l’organo di rappresentanza della comunità universitaria. Collabora con il Rettore ed il Consiglio di Amministrazione all’amministrazione generale dell’ateneo.
+                </p>
+                <p className="reveal">In particolare, il Senato Accademico:</p>
+                <ul className="reveal reveal-delay-1">
+                  <li>svolge in generale funzioni di proposta e consultive in materia di didattica, di ricerca e di servizi agli studenti</li>
+                  <li>approva lo statuto, il Codice Etico e i regolamenti di ateneo, ad eccezione di quelli relativi all’amministrazione finanziaria e contabile ed al reclutamento del personale</li>
+                  <li>nomina il Consiglio di Amministrazione</li>
+                </ul>
+              </div>
+              <div className="section-figure reveal reveal-delay-2">
+                <figure style={{marginTop: '0.5rem'}}>
+                  <img 
+                    src={fotoSenato} 
+                    alt="Foto rappresentante in Senato Accademico" 
+                    style={{maxWidth: '480px', width: '100%', borderRadius: '10px'}}
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = fotoGruppo }}
+                  />
+                  <figcaption style={{color: '#666', marginTop: '.5rem'}}>Rappresentante in Senato Accademico</figcaption>
+                </figure>
+              </div>
+            </div>
           </section>
 
           <section className="global-content-section">
             <h2 className="reveal-up fx">Il Consiglio di Amministrazione</h2>
-            <p className="reveal">
-              Il Consiglio di Amministrazione è l’organo di indirizzo strategico, di programmazione finanziaria e del personale. Vigila sulla sostenibilità finanziaria delle attività.
-            </p>
-            <p className="reveal">In particolare:</p>
-            <ul className="reveal reveal-delay-1">
-              <li>definisce la missione, i valori e la visione dell’Ateneo</li>
-              <li>approva i piani di sviluppo scientifici e didattici, nonché ogni altro documento di programmazione strategica</li>
-              <li>garantisce la stabilità finanziaria e indirizza e verifica l’effettiva sussistenza delle risorse finanziarie, umane e materiali disponibili</li>
-            </ul>
-            <figure className="reveal reveal-delay-2" style={{marginTop: '1rem'}}>
-              <img src={fotoGruppo} alt="Foto di Enzo (segnaposto)" style={{maxWidth: '480px', width: '100%', borderRadius: '10px'}} />
-              <figcaption style={{color: '#666', marginTop: '.5rem'}}>Foto di Enzo</figcaption>
-            </figure>
+            <div className="section-split image-left">
+              <div className="section-figure reveal reveal-delay-2">
+                <figure style={{marginTop: '0.5rem'}}>
+                  <img 
+                    src={fotoEnzo}
+                    alt="Foto di Enzo"
+                    style={{maxWidth: '480px', width: '100%', borderRadius: '10px'}}
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = fotoGruppo }}
+                  />
+                  <figcaption style={{color: '#666', marginTop: '.5rem'}}>Rappresentante in consiglio studentesco</figcaption>
+                </figure>
+              </div>
+              <div className="section-text">
+                <p className="reveal">
+                  Il Consiglio di Amministrazione è l’organo di indirizzo strategico, di programmazione finanziaria e del personale. Vigila sulla sostenibilità finanziaria delle attività.
+                </p>
+                <p className="reveal">In particolare:</p>
+                <ul className="reveal reveal-delay-1">
+                  <li>definisce la missione, i valori e la visione dell’Ateneo</li>
+                  <li>approva i piani di sviluppo scientifici e didattici, nonché ogni altro documento di programmazione strategica</li>
+                  <li>garantisce la stabilità finanziaria e indirizza e verifica l’effettiva sussistenza delle risorse finanziarie, umane e materiali disponibili</li>
+                </ul>
+              </div>
+            </div>
           </section>
 
           <section className="global-content-section">

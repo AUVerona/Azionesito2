@@ -133,6 +133,32 @@
   margin-bottom: 3rem;
 }
 
+/* Split layout for sections with text and image */
+.section-split {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr; /* text wider than image */
+  gap: 2rem;
+  align-items: start;
+}
+
+.section-text {
+  order: 1;
+}
+
+.section-figure {
+  order: 2; /* ensure image stays on the right on desktop */
+  display: flex;
+  justify-content: center;
+}
+
+/* Variant: force image on the left (used selectively) */
+.section-split.image-left .section-figure {
+  order: 1;
+}
+.section-split.image-left .section-text {
+  order: 2;
+}
+
 /* Spazio extra tra sezioni principali */
 .global-content-section + h2 {
   margin-top: 4rem;
@@ -257,6 +283,22 @@
 
   .global-content-section + h2 {
     margin-top: 3rem;
+  }
+  
+  .section-split {
+    grid-template-columns: 1fr; /* stack on mobile */
+  }
+  .section-figure {
+    order: 2;
+    margin-top: 1rem;
+  }
+  /* Ensure image-first stack for image-left variant on mobile */
+  .section-split.image-left .section-figure {
+    order: 1;
+    margin-top: 0;
+  }
+  .section-split.image-left .section-text {
+    order: 2;
   }
   
   .global-highlights {

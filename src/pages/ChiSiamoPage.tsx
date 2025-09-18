@@ -48,10 +48,9 @@ const ChiSiamoPage: React.FC = () => {
               </p>
             </div>
 
-            <h2 className="reveal-up fx">Chi Siamo</h2>
+            <h2 className="reveal-up fx">Il Nostro Simbolo</h2>
             <div className="chi-siamo-content">
               <div className="chi-siamo-text reveal-left">
-                <h3>Il nostro simbolo</h3>
                 <div className="simbolo-item">
                   <h4>📚 LIBRO</h4>
                   <p>

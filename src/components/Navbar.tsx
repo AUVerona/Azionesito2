@@ -6,6 +6,7 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isNavVisible, setIsNavVisible] = useState(true)
   const [isInfoOpen, setIsInfoOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const navMenuRef = useRef<HTMLUListElement>(null)
   const hamburgerRef = useRef<HTMLButtonElement>(null)
   const location = useLocation()
@@ -27,6 +28,10 @@ const Navbar: React.FC = () => {
   }
 
   useEffect(() => {
+    const updateIsMobile = () => setIsMobile(window.innerWidth <= 768)
+    updateIsMobile()
+    window.addEventListener('resize', updateIsMobile)
+
     const handleClickOutside = (event: MouseEvent) => {
       if (
         navMenuRef.current && 
@@ -71,6 +76,7 @@ const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll)
     
     return () => {
+      window.removeEventListener('resize', updateIsMobile)
       document.removeEventListener('click', handleClickOutside)
       window.removeEventListener('scroll', handleScroll)
     }
@@ -104,7 +110,20 @@ const Navbar: React.FC = () => {
               Home
             </Link>
           </li>
-          {(() => {
+          {isMobile ? (
+            <>
+              <li>
+                <Link to="/chi-siamo" onClick={closeMenu} className={isActiveLink('/chi-siamo') ? 'active-link' : ''}>Chi Siamo</Link>
+              </li>
+              <li>
+                <Link to="/attivita" onClick={closeMenu} className={isActiveLink('/attivita') ? 'active-link' : ''}>Attività</Link>
+              </li>
+              <li>
+                <Link to="/rappresentanza" onClick={closeMenu} className={isActiveLink('/rappresentanza') ? 'active-link' : ''}>Rappresentanza</Link>
+              </li>
+            </>
+          ) : (
+          (() => {
             const isAboutActive =
               isActiveLink('/chi-siamo') ||
               isActiveLink('/attivita') ||
@@ -138,7 +157,7 @@ const Navbar: React.FC = () => {
                 </ul>
               </li>
             )
-          })()}
+          })())}
           <li>
             <Link 
               to="/unisciti" 
@@ -193,15 +212,27 @@ const Navbar: React.FC = () => {
               </svg>
             </a>
           </li>
-          <li className="donation-button">
-            <Link 
-              to="/donazioni" 
-              onClick={closeMenu}
-              className="donation-link"
-            >
-              Donazioni
-            </Link>
-          </li>
+          {isMobile ? (
+            <li>
+              <Link 
+                to="/donazioni" 
+                onClick={closeMenu}
+                className={isActiveLink('/donazioni') ? 'active-link' : ''}
+              >
+                Donazioni
+              </Link>
+            </li>
+          ) : (
+            <li className="donation-button">
+              <Link 
+                to="/donazioni" 
+                onClick={closeMenu}
+                className="donation-link"
+              >
+                Donazioni
+              </Link>
+            </li>
+          )}
         </ul>
         {/* Overlay per chiudere il menu */}
         {isMenuOpen && <div className="nav-overlay" onClick={closeMenu}></div>}

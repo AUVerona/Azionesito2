@@ -34,58 +34,12 @@ const ElevatedCards: React.FC = () => {
     isExternal: true
   };
 
-  // Eventi AU - puoi modificare qui le date e i titoli degli eventi
-  const eventiAU = [
-    {
-      data: '2025-08-29',
-      titolo: 'Festa AU',
-      descrizione: 'Grande festa di inizio anno AU con musica, cibo e divertimento per tutti!'
-    },
-    {
-      data: '2025-09-12',
-      titolo: 'Caffè con i Prof',
-      descrizione: 'Incontro informale con i docenti per domande e curiosità.'
-    },
-    {
-      data: '2025-09-20',
-      titolo: 'Aperitivo di Benvenuto',
-      descrizione: 'Un aperitivo per accogliere tutte le nuove matricole e presentare le attività AU.'
-    },
-    {
-      data: '2025-09-28',
-      titolo: 'Giornata Sportiva',
-      descrizione: 'Torneo AU di calcio e pallavolo aperto a tutti.'
-    },
-    {
-      data: '2025-10-05',
-      titolo: 'Incontro Matricole',
-      descrizione: 'Incontro informativo per aiutare le matricole a orientarsi e conoscere l’associazione.'
-    },
-    {
-      data: '2025-10-15',
-      titolo: 'Assemblea Studentesca',
-      descrizione: 'Riunione aperta a tutti gli studenti per discutere proposte e iniziative.'
-    },
-    {
-      data: '2025-10-22',
-      titolo: 'Workshop CV',
-      descrizione: 'Laboratorio pratico su come scrivere un curriculum efficace.'
-    },
-    {
-      data: '2025-10-30',
-      titolo: 'Serata Pizza AU',
-      descrizione: 'Serata conviviale a base di pizza per rafforzare la community AU.'
-    },
-    {
-      data: '2025-11-07',
-      titolo: 'Serata Giochi da Tavolo',
-      descrizione: 'Divertimento assicurato con giochi da tavolo e premi.'
-    },
-    {
-      data: '2025-11-18',
-      titolo: 'Cineforum AU',
-      descrizione: 'Proiezione di un film a sorpresa e dibattito finale.'
-    },
+  // Eventi AURORA - Ottobre 2025
+  const eventiAU: { data: string; titolo: string; descrizione: string }[] = [
+    { data: '2025-10-01', titolo: 'Matricole day', descrizione: 'Giornata di benvenuto per le matricole' },
+    { data: '2025-10-09', titolo: 'AURORA', descrizione: 'Festival Aurora di Azione Universitaria' },
+    { data: '2025-10-10', titolo: 'AURORA', descrizione: 'Festival Aurora di Azione Universitaria' },
+    { data: '2025-10-11', titolo: 'AURORA', descrizione: 'Festival Aurora di Azione Universitaria' },
   ];
 
   // Date degli eventi in formato Date

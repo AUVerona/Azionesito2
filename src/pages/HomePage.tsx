@@ -5,6 +5,7 @@ import Hero from '../components/Hero'
 import ElevatedCards from '../components/ElevatedCards'
 import Footer from '../components/Footer'
 import fotoDigruppo from '../assets/fotodigruppo.jpeg'
+import { BsClock, BsFlag, BsBook, BsEasel, BsPeople, BsLightbulb } from 'react-icons/bs'
 import './HomePage.css'
 
 const HomePage: React.FC = () => {
@@ -72,8 +73,10 @@ const HomePage: React.FC = () => {
           <h2>I nostri Obiettivi</h2>
           <div className="services-grid">
             <div className="service-card">
-              <div className="service-icon">⏰</div>
-              <h3>Ottimizare gli orari</h3>
+              <div className="service-icon" aria-hidden>
+                <BsClock />
+              </div>
+              <h3>Ottimizzare gli orari</h3>
               <p>Pause infinite e orari impossibili? Cambiamo le cose insieme!
                Con Azione Universitaria proponiamo:</p>
               <ul>
@@ -82,9 +85,11 @@ const HomePage: React.FC = () => {
                 <li>Pianificazione più intelligente per evitare inutili perdite di tempo.</li>
               </ul>
             </div>
-            
+
             <div className="service-card">
-              <div className="service-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+              <div className="service-icon" aria-hidden>
+                <BsFlag />
+              </div>
               <h3>Organizziamo il futuro del CLA pensando a TE!</h3>
               <p>Con Azione Universitaria vogliamo:</p>
               <ul>
@@ -93,9 +98,11 @@ const HomePage: React.FC = () => {
                 <li>Collaborazioni inter-corso</li>
               </ul>
             </div>
-            
+
             <div className="service-card">
-              <div className="service-icon">📚</div>
+              <div className="service-icon" aria-hidden>
+                <BsBook />
+              </div>
               <h3>Sessioni d'esame più organizzate, meno stress!</h3>
               <p>Basta esami sovrapposti o sessioni ingestibili! Con Azione Universitaria proponiamo:</p>
               <ul>
@@ -104,9 +111,11 @@ const HomePage: React.FC = () => {
                 <li>Zero sovrapposizioni tra date d'esame</li>
               </ul>
             </div>
-            
+
             <div className="service-card">
-              <div className="service-icon">🎉</div>
+              <div className="service-icon" aria-hidden>
+                <BsEasel />
+              </div>
               <h3>Organizziamo i seminari universitari pensando a TE!</h3>
               <p>Con Azione Universitaria vogliamo:</p>
               <ul>
@@ -116,9 +125,11 @@ const HomePage: React.FC = () => {
                 <li>Comunicazione chiara e tempestiva su tutte le opportunità.</li>
               </ul>
             </div>
-            
+
             <div className="service-card">
-              <div className="service-icon">🤝</div>
+              <div className="service-icon" aria-hidden>
+                <BsPeople />
+              </div>
               <h3>Rappresentanza studentesca efficace</h3>
               <p>La tua voce conta! Con Azione Universitaria assicuriamo:</p>
               <ul>
@@ -128,9 +139,11 @@ const HomePage: React.FC = () => {
                 <li>Dialogo costruttivo con docenti e amministrazione.</li>
               </ul>
             </div>
-            
+
             <div className="service-card">
-              <div className="service-icon">💡</div>
+              <div className="service-icon" aria-hidden>
+                <BsLightbulb />
+              </div>
               <h3>Innovazione e digitalizzazione</h3>
               <p>Verso un'università più moderna e tecnologica:</p>
               <ul>
@@ -156,7 +169,7 @@ const HomePage: React.FC = () => {
               <div className="leader-info">
                 <h3>Marica Peroni</h3>
                 <h4>Presidente</h4>
-                <p>Studente di Studi Strategici al primo anno, Marica coordina le attività dell'associazione e rappresenta gli studenti negli organi universitari. Appassionato di diritto costituzionale e attivismo studentesco, si dedica al miglioramento dell'esperienza universitaria per tutti gli studenti.</p>
+                <p>Marica Peroni è una studentessa del secondo anno di Studi Strategici presso l’Università di Verona e senatrice del Senato Accademico, dove contribuisce attivamente alla rappresentanza e al miglioramento della vita universitaria.</p>
               </div>
             </div>
             
@@ -167,7 +180,7 @@ const HomePage: React.FC = () => {
               <div className="leader-info">
                 <h3>Enzo Russo</h3>
                 <h4>Vice Presidente</h4>
-                <p>Laureando in Scienze Giuridiche, Enzo si occupa della gestione organizzativa e dei rapporti con le aziende partner. Esperto in project management e networking professionale, coordina eventi e iniziative per lo sviluppo della carriera studentesca.</p>
+                <p>Enzo Russo è uno studente di Scienze Giuridiche e membro del Consiglio Studentesco, impegnato nella tutela dei diritti degli studenti e nel miglioramento dei servizi universitari.</p>
               </div>
             </div>
           </div>
@@ -179,31 +192,15 @@ const HomePage: React.FC = () => {
         <div className="container">
           <h2>Prossimi Eventi</h2>
           <div className="events-grid">
-            <div className="event-card featured">
-              <div className="event-date">
-                <span className="day">15</span>
-                <span className="month">AGO</span>
-              </div>
-              <div className="event-info">
-                <h3>Welcome Day Matricole 2025</h3>
-                <p>Evento di benvenuto per le nuove matricole con presentazioni, tour del campus e aperitivo di networking.</p>
-                <div className="event-details">
-                  <span>📍 Aula Magna</span>
-                  <span>🕒 15:00 - 19:00</span>
-                  <span>👥 Gratuito</span>
-                </div>
-              </div>
-              <button className="event-btn">Partecipa</button>
-            </div>
             
             <div className="event-card">
               <div className="event-date">
-                <span className="day">22</span>
-                <span className="month">AGO</span>
+                <span className="day">1</span>
+                <span className="month">OTTOBRE</span>
               </div>
               <div className="event-info">
                 <h3>Workshop: "Come Preparare la Tesi"</h3>
-                <p>Seminario pratico su metodologie di ricerca, struttura della tesi e presentazione.</p>
+                <p>Evento di benvenuto per le nuove matricole con presentazioni, tour del campus e aperitivo di networking.</p>
                 <div className="event-details">
                   <span>📍 Sala Conferenze</span>
                   <span>🕒 14:00 - 17:00</span>
@@ -213,14 +210,14 @@ const HomePage: React.FC = () => {
             
             <div className="event-card">
               <div className="event-date">
-                <span className="day">29</span>
-                <span className="month">AGO</span>
+                <span className="day">9</span>
+                <span className="month">Ottobre</span>
               </div>
               <div className="event-info">
-                <h3>Aperitivo di Fine Estate</h3>
+                <h3>Festival AUrora</h3>
                 <p>Momento di socializzazione per concludere l'estate e prepararsi al nuovo anno accademico.</p>
                 <div className="event-details">
-                  <span>📍 Terrazza UniBar</span>
+                  <span>📍 Santa Marta</span>
                   <span>🕒 18:30 - 21:00</span>
                 </div>
               </div>
