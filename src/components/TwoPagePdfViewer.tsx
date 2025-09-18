@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import * as pdfjsLib from 'pdfjs-dist'
-import 'pdfjs-dist/build/pdf.worker.mjs'
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.mjs', import.meta.url).toString()
+// Use a static worker file served from /public to avoid CSP issues with blob/eval
+pdfjsLib.GlobalWorkerOptions.workerSrc = `${import.meta.env.BASE_URL}pdf.worker.js`
 
 type Props = {
   src: string
@@ -71,7 +71,7 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
   useEffect(() => {
     let canceled = false
     const load = async () => {
-      const loadingTask = pdfjsLib.getDocument(src)
+  const loadingTask = pdfjsLib.getDocument({ url: src, disableEval: true } as any)
       const doc = await loadingTask.promise
       if (canceled) return
       setPdfDoc(doc)
