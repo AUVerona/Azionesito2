@@ -77,7 +77,7 @@ const ElevatedCards: React.FC = () => {
           style={{ cursor: 'pointer', flex: '1 1 280px', maxWidth: 340, minWidth: 260 }}
         >
           <div className="card-image">
-            <img src={primaCard.image} alt={primaCard.title} />
+            <img src={primaCard.image} alt={primaCard.title} loading="lazy" decoding="async" />
           </div>
           <h3>{primaCard.title}</h3>
           <p>{primaCard.description}</p>

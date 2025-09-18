@@ -18,7 +18,6 @@ const HomePage: React.FC = () => {
       {/* Sezione Chi Siamo Preview */}
       <section className="about-preview" style={{
         backgroundImage: `url(${fotoDigruppo})`,
-        backgroundAttachment: 'fixed',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

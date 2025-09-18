@@ -12,6 +12,7 @@ const Footer: React.FC = () => {
             src="/Azionesito2/logo-auvr.png" 
             alt="Azione Universitaria"
             className="footer-logo"
+            loading="lazy"
           />
         </div>
 

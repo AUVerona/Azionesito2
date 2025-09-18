@@ -46,9 +46,11 @@ const ChiSiamo: React.FC = () => {
             </div>
           </div>
           <div className="chi-siamo-image">
-            <img 
+                <img 
               src="https://tesseramenti.azioneuniversitaria.it/images/logo_au.png" 
               alt="Logo Azione Universitaria Verona"
+                  loading="lazy"
+                  decoding="async"
             />
           </div>
         </div>

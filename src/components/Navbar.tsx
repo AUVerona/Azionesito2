@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
       <div className="nav-container">
         <div className="nav-logo">
           <Link to="/">
-            <img src={IMAGES.LOGO} alt="Logo AUVR" />
+            <img src={IMAGES.LOGO} alt="Logo AUVR" loading="eager" decoding="async" />
           </Link>
         </div>
         <button 
