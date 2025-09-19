@@ -16,6 +16,7 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
   // spreadIndex = 0 => [blank, 1]; 1 => [2,3]; 2 => [4,5] ...
   const [spreadIndex, setSpreadIndex] = useState(0)
   const [scale, setScale] = useState(1.2)
+  const [error, setError] = useState<string | null>(null)
 
   const renderPageToCanvas = useCallback(async (pageNum: number, canvas: HTMLCanvasElement | null) => {
     if (!pdfDoc || !canvas) return
@@ -57,8 +58,14 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
       if (leftCanvas) {
         const ctx = leftCanvas.getContext('2d')
         if (ctx) ctx.clearRect(0, 0, leftCanvas.width, leftCanvas.height)
-        // Keep size similar to right for first render if possible
-        // We'll size after right renders based on its viewport styling
+        // Try to mirror right canvas CSS size for layout symmetry
+        const rightCanvas = rightCanvasRef.current
+        if (rightCanvas) {
+          leftCanvas.style.width = rightCanvas.style.width
+          leftCanvas.style.height = rightCanvas.style.height
+          leftCanvas.width = rightCanvas.width
+          leftCanvas.height = rightCanvas.height
+        }
       }
     } else {
       await renderPageToCanvas(leftPageNum, leftCanvas)
@@ -71,12 +78,19 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
   useEffect(() => {
     let canceled = false
     const load = async () => {
-  const loadingTask = pdfjsLib.getDocument({ url: src, disableEval: true } as any)
-      const doc = await loadingTask.promise
-      if (canceled) return
-      setPdfDoc(doc)
-  // Start with first spread [blank, 1]
-  setSpreadIndex(0)
+      try {
+        setError(null)
+        const loadingTask = pdfjsLib.getDocument({ url: src, disableEval: true } as any)
+        const doc = await loadingTask.promise
+        if (canceled) return
+        setPdfDoc(doc)
+        // Start with first spread [blank, 1]
+        setSpreadIndex(0)
+      } catch (e: any) {
+        if (canceled) return
+        console.error('Errore caricamento PDF:', e)
+        setError('Impossibile caricare il PDF. Prova ad aprirlo direttamente dal link qui sotto.')
+      }
     }
     load()
     return () => { canceled = true }
@@ -127,10 +141,27 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
           <button onClick={zoomIn} aria-label="Zoom +">＋</button>
         </div>
       </div>
-      <div className="tpv-spread">
-        <canvas ref={leftCanvasRef} className="tpv-page"></canvas>
-        <canvas ref={rightCanvasRef} className="tpv-page"></canvas>
-      </div>
+      {error ? (
+        <div style={{ textAlign: 'center', padding: '1rem' }}>
+          <p>{error}</p>
+          <p>
+            <a href={src} target="_blank" rel="noopener noreferrer">Apri il PDF in una nuova scheda</a>
+          </p>
+          <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+            <iframe
+              className="pdf-frame"
+              title="Manuale PDF"
+              src={src}
+              style={{ height: '80vh' }}
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="tpv-spread">
+          <canvas ref={leftCanvasRef} className="tpv-page"></canvas>
+          <canvas ref={rightCanvasRef} className="tpv-page"></canvas>
+        </div>
+      )}
     </div>
   )
 }
