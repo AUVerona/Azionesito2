@@ -1,16 +1,7 @@
-// Utility per gestire i percorsi delle immagini
-// Funziona sia in sviluppo che in produzione
-
-export const getImagePath = (imageName: string): string => {
-  // Controlla se siamo in sviluppo guardando la porta
-  const isDev = window.location.hostname === 'localhost'
-  
-  if (isDev) {
-    return `/${imageName}`
-  }
-  
-  // In produzione (GitHub Pages), le immagini sono ora nella root
-  return `/Azionesito2/${imageName}`
+// Utility per gestire i percorsi pubblici (immagini/PDF)
+// Usa sempre la base di Vite, corretta sia in dev che in build
+export const getImagePath = (fileName: string): string => {
+  return `${import.meta.env.BASE_URL}${fileName}`
 }
 
 // Percorsi delle immagini
