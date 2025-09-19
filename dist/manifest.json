@@ -1,0 +1,26 @@
+{
+  "name": "Azione Universitaria Verona",
+  "short_name": "AUVR",
+  "description": "Sito ufficiale dell'Associazione Studentesca Azione Universitaria Verona",
+  "start_url": "/Azionesito2/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a365d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/Azionesito2/logo-auvr.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Azionesito2/logo-auvr.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "social"],
+  "lang": "it"
+}

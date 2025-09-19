@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://auverona.github.io/Azionesito2/sitemap.xml
+
+# Disallow admin or sensitive areas (if any)
+Disallow: /private/
+Disallow: /admin/
+
+# Allow all search engines to crawl
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay (optional)
+Crawl-delay: 1
