@@ -16,6 +16,9 @@
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
+  /* Migliore touch target per mobile */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .privacy-lock:hover {
@@ -31,6 +34,11 @@
   outline-offset: 2px;
 }
 
+.privacy-lock:active {
+  transform: translateY(0px);
+  transition: transform 0.1s ease;
+}
+
 .privacy-lock svg {
   width: 24px;
   height: 24px;
@@ -39,29 +47,101 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .privacy-lock {
-    bottom: 15px;
-    left: 15px;
-    width: 45px;
-    height: 45px;
+    bottom: 20px;
+    left: 20px;
+    width: 48px;
+    height: 48px;
+    /* Migliore touch target */
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .privacy-lock svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-lock {
+    bottom: 16px;
+    left: 16px;
+    width: 46px;
+    height: 46px;
+    box-shadow: 0 3px 10px rgba(0, 123, 255, 0.35);
+    /* Assicura accessibilità touch */
+    min-width: 44px;
+    min-height: 44px;
   }
   
   .privacy-lock svg {
     width: 20px;
     height: 20px;
   }
+  
+  .privacy-lock:hover,
+  .privacy-lock:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0, 123, 255, 0.45);
+  }
+  
+  .privacy-lock:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 360px) {
   .privacy-lock {
-    bottom: 10px;
-    left: 10px;
-    width: 40px;
-    height: 40px;
+    bottom: 14px;
+    left: 14px;
+    width: 44px;
+    height: 44px;
+    /* Mantieni dimensioni minime per touch */
+    min-width: 44px;
+    min-height: 44px;
   }
   
   .privacy-lock svg {
     width: 18px;
     height: 18px;
+  }
+}
+
+/* Evita sovrapposizione con altri elementi mobile */
+@media (max-width: 768px) {
+  .privacy-lock {
+    /* Assicura che non si sovrapponga con elementi UI mobile */
+    z-index: 1001;
+  }
+  
+  /* Evita conflitti con navbar mobile */
+  body.nav-open .privacy-lock {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+
+/* Per dispositivi con notch o gesture bar */
+@media (max-width: 480px) and (max-height: 800px) {
+  .privacy-lock {
+    bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    left: max(16px, env(safe-area-inset-left, 16px));
+  }
+}
+
+/* Ottimizzazione per orientamento landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
+  .privacy-lock {
+    bottom: 12px;
+    left: 12px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .privacy-lock svg {
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -76,7 +156,7 @@
   border-radius: 50%;
   background: rgba(0, 123, 255, 0.3);
   transform: translate(-50%, -50%) scale(1);
-  animation: pulse 2s infinite;
+  animation: pulse 3s infinite;
   z-index: -1;
 }
 
@@ -91,6 +171,30 @@
   }
   100% {
     transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Rimuovi animazione su mobile per performance e UX */
+@media (max-width: 768px) {
+  .privacy-lock::before {
+    display: none;
+  }
+}
+
+/* Per dispositivi con movimento ridotto */
+@media (prefers-reduced-motion: reduce) {
+  .privacy-lock {
+    transition: background-color 0.2s ease;
+  }
+  
+  .privacy-lock:hover,
+  .privacy-lock:focus {
+    transform: none;
+  }
+  
+  .privacy-lock::before {
+    animation: none;
     opacity: 0;
   }
 }

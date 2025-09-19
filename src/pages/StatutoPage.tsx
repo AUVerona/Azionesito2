@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { getImagePath } from '../utils/paths'
 import './StatutoPage.css'
 import '../styles/globalPageStyles.css'
 
@@ -41,7 +42,7 @@ const StatutoPage: React.FC = () => {
             <div className="pdf-section">
               <div className="pdf-container">
                 <iframe 
-                  src="/Azionesito2/statuto-auvr.pdf#toolbar=0&navpanes=0&scrollbar=1" 
+                  src={`${getImagePath('statuto-auvr.pdf')}#toolbar=0&navpanes=0&scrollbar=1`} 
                   title="Statuto AUVR"
                   className="pdf-viewer"
                 >

@@ -2,11 +2,123 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
-  <link rel="icon" href="/Azionesito2/logo-auvr.png" />
-    <link rel="preload" as="image" href="/Azionesito2/AURORA.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AUVR - Associazione Universitaria di Verona</title>
-  <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- PWA and Mobile -->
+    <meta name="theme-color" content="#1a365d" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="AUVR" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Azione Universitaria Verona</title>
+    <meta name="description" content="Sito ufficiale dell'Associazione Studentesca &quot;Azione Universitaria Verona&quot;" />
+    <meta name="keywords" content="azione universitaria verona, AUVR, movimento studentesco, università verona, matricole, rappresentanza studentesca, aurora festival" />
+    <meta name="author" content="Azione Universitaria Verona" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Italian" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://auverona.github.io/Azionesito2/" />
+    <meta property="og:title" content="Azione Universitaria Verona" />
+    <meta property="og:description" content="Sito ufficiale dell'Associazione Studentesca &quot;Azione Universitaria Verona&quot;" />
+    <meta property="og:image" content="https://auverona.github.io/Azionesito2/logo-auvr.png" />
+    <meta property="og:site_name" content="Azione Universitaria Verona" />
+    <meta property="og:locale" content="it_IT" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://auverona.github.io/Azionesito2/" />
+    <meta property="twitter:title" content="Azione Universitaria Verona" />
+    <meta property="twitter:description" content="Sito ufficiale dell'Associazione Studentesca &quot;Azione Universitaria Verona&quot;" />
+    <meta property="twitter:image" content="https://auverona.github.io/Azionesito2/logo-auvr.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/Azionesito2/logo-auvr.png" />
+    <link rel="apple-touch-icon" href="/Azionesito2/logo-auvr.png" />
+    <link rel="manifest" href="/Azionesito2/manifest.json" />
+    
+    <!-- Performance optimization -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="/Azionesito2/AURORA.jpg" />
+    <link rel="preload" as="image" href="/Azionesito2/logo-auvr.png" />
+    <link rel="preload" as="image" href="/Azionesito2/fotodigruppo.jpeg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://auverona.github.io/Azionesito2/" />
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Azione Universitaria Verona",
+      "alternateName": "AUVR",
+      "url": "https://auverona.github.io/Azionesito2/",
+      "logo": "https://auverona.github.io/Azionesito2/logo-auvr.png",
+      "description": "Sito ufficiale dell'Associazione Studentesca Azione Universitaria Verona che organizza eventi, supporta le matricole e rappresenta gli studenti negli organi universitari.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Campo Fiore, 17A",
+        "addressLocality": "Verona",
+        "postalCode": "37129",
+        "addressCountry": "IT"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@azioneuniversitaria.it",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.instagram.com/azioneuniversitariaverona/",
+        "https://www.linkedin.com/company/azione-universitaria-verona/"
+      ]
+    }
+    </script>
+    
+    <!-- Events Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Festival Aurora",
+      "description": "Festival di benvenuto per le matricole dell'Università di Verona con concerti, talk su intelligenza artificiale, imprenditoria, street market e food truck.",
+      "startDate": "2024-10-09",
+      "endDate": "2024-10-11",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Polo Santa Marta - Università di Verona",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Cantarane, 24",
+          "addressLocality": "Verona",
+          "postalCode": "37129",
+          "addressCountry": "IT"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Azione Universitaria Verona",
+        "url": "https://auverona.github.io/Azionesito2/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    
+    <script type="module" src="/src/main.tsx"></script>
   </head>
   <body>
     <div id="root"></div>

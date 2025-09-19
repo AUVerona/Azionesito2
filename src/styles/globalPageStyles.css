@@ -11,10 +11,14 @@
   --au-muted: #666666;     /* Testo secondario */
 }
 
-/* Rimuovo tutti i fix per il navbar che causavano problemi */
-
+/* Spazio per il contenuto principale */
 .global-page-layout main {
   padding: 0;
+}
+
+/* Sezione principale con padding aggiuntivo per più spazio */
+.global-page-section {
+  padding: 2rem 0;
 }
 
 /* Escludi esplicitamente il NAVBAR dagli stili lista globali */
@@ -36,6 +40,7 @@
 .global-page-section {
   background-color: #ffffff;
   padding: 4rem 0 1rem;
+  margin-top: 60px; /* Spazio ulteriormente ridotto dopo la navbar fissa */
 }
 
 /* Stili per tutti i titoli H1 */
@@ -313,5 +318,11 @@
   .global-page-layout p {
     font-size: 0.95rem;
     margin-bottom: 1.2rem;
+  }
+  
+  /* Regolazione spazio navbar per mobile */
+  .global-page-section {
+    margin-top: 50px; /* Spazio ulteriormente ridotto per mobile */
+    padding: 1.5rem 0;
   }
 }

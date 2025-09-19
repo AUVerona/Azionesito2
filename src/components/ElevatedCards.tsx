@@ -83,9 +83,9 @@ const ElevatedCards: React.FC = () => {
           <p>{primaCard.description}</p>
         </div>
 
-        {/* Sezione calendario: header mese e calendario in due div separati ma nella stessa card */}
+        {/* Calendario Desktop */}
         <div 
-          className="card card-with-image" 
+          className="card card-with-image desktop-calendar" 
           style={{ 
             minHeight: 400, 
             flex: '3 1 600px', 
@@ -301,9 +301,162 @@ const ElevatedCards: React.FC = () => {
               )}
             </div>
           </div>
+        </div>
 
-          {/* Modal evento */}
-          {/* Stile custom per i giorni evento e calendario */}
+        {/* Calendario Mobile Ottimizzato */}
+        <div className="mobile-calendar" style={{ display: 'none' }}>
+          <div style={{
+            background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+            borderRadius: 16,
+            boxShadow: '0 8px 32px rgba(46,134,193,0.15)',
+            padding: '1.5rem',
+            margin: '1rem',
+          }}>
+            {/* Header semplificato per mobile */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginBottom: '1.5rem',
+              borderBottom: '2px solid #2E86C1',
+              paddingBottom: '1rem'
+            }}>
+              <button
+                onClick={() => {
+                  const prev = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1);
+                  setCurrentMonth(prev);
+                }}
+                style={{
+                  background: '#2E86C1',
+                  border: 'none',
+                  color: 'white',
+                  borderRadius: '50%',
+                  width: '40px',
+                  height: '40px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.2rem',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 12px rgba(46,134,193,0.3)'
+                }}
+              >
+                &#8592;
+              </button>
+              <h3 style={{
+                margin: 0,
+                color: '#2E86C1',
+                fontSize: '1.3rem',
+                fontWeight: 700,
+                textAlign: 'center'
+              }}>
+                {currentMonth.toLocaleDateString('it-IT', { month: 'long', year: 'numeric' }).replace(/^./, c => c.toUpperCase())}
+              </h3>
+              <button
+                onClick={() => {
+                  const next = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1);
+                  setCurrentMonth(next);
+                }}
+                style={{
+                  background: '#2E86C1',
+                  border: 'none',
+                  color: 'white',
+                  borderRadius: '50%',
+                  width: '40px',
+                  height: '40px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.2rem',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 12px rgba(46,134,193,0.3)'
+                }}
+              >
+                &#8594;
+              </button>
+            </div>
+
+            {/* Lista eventi compatta per mobile */}
+            <div style={{ marginBottom: '1.5rem' }}>
+              <h4 style={{ 
+                margin: '0 0 1rem 0', 
+                color: '#2E86C1', 
+                fontSize: '1.1rem',
+                fontWeight: 600 
+              }}>
+                Eventi {currentMonth.toLocaleDateString('it-IT', { month: 'long' })}:
+              </h4>
+              {eventiAU
+                .filter(evento => {
+                  const eventoDate = new Date(evento.data);
+                  return eventoDate.getMonth() === currentMonth.getMonth() && 
+                         eventoDate.getFullYear() === currentMonth.getFullYear();
+                })
+                .map((evento, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      background: '#2E86C1',
+                      color: 'white',
+                      padding: '1rem',
+                      borderRadius: '12px',
+                      marginBottom: '0.8rem',
+                      boxShadow: '0 4px 16px rgba(46,134,193,0.2)'
+                    }}
+                  >
+                    <div style={{ 
+                      display: 'flex', 
+                      justifyContent: 'space-between', 
+                      alignItems: 'center',
+                      marginBottom: '0.5rem'
+                    }}>
+                      <strong style={{ fontSize: '1.1rem' }}>{evento.titolo}</strong>
+                      <span style={{ 
+                        background: 'rgba(255,255,255,0.2)', 
+                        padding: '0.3rem 0.6rem', 
+                        borderRadius: '8px',
+                        fontSize: '0.9rem'
+                      }}>
+                        {new Date(evento.data).getDate()}/{currentMonth.getMonth() + 1}
+                      </span>
+                    </div>
+                    <p style={{ 
+                      margin: 0, 
+                      fontSize: '0.95rem', 
+                      opacity: 0.9,
+                      lineHeight: 1.4
+                    }}>
+                      {evento.descrizione}
+                    </p>
+                    <div style={{ 
+                      marginTop: '0.5rem', 
+                      fontSize: '0.85rem', 
+                      opacity: 0.8 
+                    }}>
+                      📍 Aula Magna, UniVR • 🕕 ore 18:00
+                    </div>
+                  </div>
+                ))}
+              {eventiAU.filter(evento => {
+                const eventoDate = new Date(evento.data);
+                return eventoDate.getMonth() === currentMonth.getMonth() && 
+                       eventoDate.getFullYear() === currentMonth.getFullYear();
+              }).length === 0 && (
+                <div style={{
+                  textAlign: 'center',
+                  color: '#666',
+                  fontStyle: 'italic',
+                  padding: '2rem',
+                  background: '#f8f9fa',
+                  borderRadius: '12px'
+                }}>
+                  Nessun evento in programma per questo mese
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
           <style>{`
             @media (max-width: 480px) {
               .elevated-cards .card-with-image > div[style*='position: absolute'] {
@@ -424,10 +577,34 @@ const ElevatedCards: React.FC = () => {
               .overlap-chi-siamo {
                 margin-top: -30px;
               }
+              .cards-container {
+                flex-direction: column !important;
+                gap: 1.5rem !important;
+              }
+              .card-clickable {
+                display: none !important;
+              }
+              .card, .card-with-image {
+                flex: 1 1 auto !important;
+                min-width: 100% !important;
+                max-width: 100% !important;
+              }
+              .card-with-image {
+                min-height: auto !important;
+              }
+              /* Mobile: rimuovi sovrapposizione con hero */
+              .overlap-chi-siamo {
+                margin-top: 2rem !important;
+                margin-bottom: 2rem !important;
+              }
+              .desktop-calendar {
+                display: none !important;
+              }
+              .mobile-calendar {
+                display: block !important;
+              }
             }
           `}</style>
-        </div>
-      </div>
     </section>
   )
 }

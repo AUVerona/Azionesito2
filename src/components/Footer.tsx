@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { getImagePath } from '../utils/paths'
 import './Footer.css'
 
 const Footer: React.FC = () => {
@@ -9,7 +10,7 @@ const Footer: React.FC = () => {
         {/* Logo Sezione */}
         <div className="footer-section logo-section">
           <img 
-            src="/Azionesito2/logo-auvr.png" 
+            src={getImagePath('logo-auvr.png')} 
             alt="Azione Universitaria"
             className="footer-logo"
             loading="lazy"

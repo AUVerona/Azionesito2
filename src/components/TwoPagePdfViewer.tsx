@@ -23,7 +23,14 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
   // Rileva se siamo su mobile
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768)
+      const mobile = window.innerWidth <= 768
+      setIsMobile(mobile)
+      // Set initial scale based on device type
+      if (mobile) {
+        setScale(0.8) // Smaller initial scale for mobile
+      } else {
+        setScale(1.2) // Default scale for desktop
+      }
     }
     
     checkMobile()
@@ -41,7 +48,17 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
       return
     }
     const page = await pdfDoc.getPage(pageNum)
-    const viewport = page.getViewport({ scale })
+    
+    // Adjust scale for mobile to fit screen width
+    let adjustedScale = scale
+    if (isMobile && containerRef.current) {
+      const containerWidth = containerRef.current.clientWidth - 40 // padding
+      const viewport = page.getViewport({ scale: 1 })
+      const scaleToFitWidth = containerWidth / viewport.width
+      adjustedScale = Math.min(scale, scaleToFitWidth)
+    }
+    
+    const viewport = page.getViewport({ scale: adjustedScale })
     const outputScale = window.devicePixelRatio || 1
     const context = canvas.getContext('2d')!
     canvas.width = Math.floor(viewport.width * outputScale)
@@ -51,7 +68,7 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
     const transform = outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : undefined
     const renderContext = { canvasContext: context, viewport, transform }
     await page.render(renderContext as any).promise
-  }, [pdfDoc, scale])
+  }, [pdfDoc, scale, isMobile])
 
   const renderSpread = useCallback(async () => {
     if (isMobile) {
@@ -90,15 +107,25 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
 
       // Render left (blank if null or out of range)
       if (leftPageNum == null) {
-        if (leftCanvas) {
+        if (leftCanvas && pdfDoc) {
+          // Get dimensions from the first page to maintain consistency
+          const firstPage = await pdfDoc.getPage(1)
+          const viewport = firstPage.getViewport({ scale })
+          const outputScale = window.devicePixelRatio || 1
+          
+          // Set canvas size to match the first page dimensions
+          leftCanvas.width = Math.floor(viewport.width * outputScale)
+          leftCanvas.height = Math.floor(viewport.height * outputScale)
+          leftCanvas.style.width = `${viewport.width}px`
+          leftCanvas.style.height = `${viewport.height}px`
+          
+          // Clear canvas to show blank page
           const ctx = leftCanvas.getContext('2d')
-          if (ctx) ctx.clearRect(0, 0, leftCanvas.width, leftCanvas.height)
-          // Try to mirror right canvas CSS size for layout symmetry
-          if (rightCanvas) {
-            leftCanvas.style.width = rightCanvas.style.width
-            leftCanvas.style.height = rightCanvas.style.height
-            leftCanvas.width = rightCanvas.width
-            leftCanvas.height = rightCanvas.height
+          if (ctx) {
+            ctx.clearRect(0, 0, leftCanvas.width, leftCanvas.height)
+            // Optional: add a light border to show it's a blank page
+            ctx.fillStyle = '#ffffff'
+            ctx.fillRect(0, 0, leftCanvas.width, leftCanvas.height)
           }
         }
       } else {

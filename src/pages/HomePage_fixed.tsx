@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
       <ElevatedCards />
       
       {/* Sezione Chi Siamo Preview */}
-      <section className="about-preview" style={{
+      <section className="about-preview" aria-labelledby="about-heading" style={{
         backgroundImage: `url(${fotoDigruppo})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -34,7 +34,7 @@ const HomePage: React.FC = () => {
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="about-content">
             <div className="about-text">
-              <h2>Chi Siamo</h2>
+              <h2 id="about-heading">Chi Siamo</h2>
               <p>
                 Siamo l'Associazione Universitaria di Verona, una community dinamica 
                 che riunisce studenti di tutti i corsi di laurea. La nostra missione è creare 

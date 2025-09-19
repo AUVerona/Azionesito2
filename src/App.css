@@ -881,9 +881,6 @@ footer {
         text-align: left;
         width: auto;
     }
-    .elevated-cards {
-        display: none;
-    }
     .chi-siamo-container {
         padding: 0 1rem;
     }
@@ -956,10 +953,6 @@ footer {
 
     .hero-text h1 {
         font-size: clamp(2rem, 5vw, 3rem);
-    }
-
-    .elevated-cards {
-        display: none;
     }
 
     .chi-siamo {
