@@ -156,36 +156,6 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Sezione Responsabili */}
-      <section className="team-leaders">
-        <div className="container">
-          <h2>I nostri Responsabili</h2>
-          <div className="leaders-split">
-            <div className="leader-left">
-              <div className="leader-avatar">
-                <div className="avatar-icon">👩‍💻</div>
-              </div>
-              <div className="leader-info">
-                <h3>Marica Peroni</h3>
-                <h4>Presidente</h4>
-                <p>Marica Peroni è una studentessa del secondo anno di Studi Strategici presso l’Università di Verona e senatrice del Senato Accademico, dove contribuisce attivamente alla rappresentanza e al miglioramento della vita universitaria.</p>
-              </div>
-            </div>
-            
-            <div className="leader-right">
-              <div className="leader-avatar">
-                <div className="avatar-icon">👨‍💼</div>
-              </div>
-              <div className="leader-info">
-                <h3>Enzo Russo</h3>
-                <h4>Vice Presidente</h4>
-                <p>Enzo Russo è uno studente di Scienze Giuridiche e membro del Consiglio Studentesco, impegnato nella tutela dei diritti degli studenti e nel miglioramento dei servizi universitari.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Sezione Prossimi Eventi */}
       <section className="upcoming-events">
         <div className="container">

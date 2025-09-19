@@ -65,6 +65,7 @@ const RappresentanzaPage: React.FC = () => {
                     src={fotoSenato} 
                     alt="Foto rappresentante in Senato Accademico" 
                     style={{maxWidth: '480px', width: '100%', borderRadius: '10px'}}
+                    loading="lazy"
                     onError={(e) => { (e.currentTarget as HTMLImageElement).src = fotoGruppo }}
                   />
                   <figcaption style={{color: '#666', marginTop: '.5rem'}}>Rappresentante in Senato Accademico</figcaption>
@@ -82,6 +83,7 @@ const RappresentanzaPage: React.FC = () => {
                     src={fotoEnzo}
                     alt="Foto di Enzo"
                     style={{maxWidth: '480px', width: '100%', borderRadius: '10px'}}
+                    loading="lazy"
                     onError={(e) => { (e.currentTarget as HTMLImageElement).src = fotoGruppo }}
                   />
                   <figcaption style={{color: '#666', marginTop: '.5rem'}}>Rappresentante in consiglio studentesco</figcaption>
