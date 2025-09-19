@@ -106,35 +106,7 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Sezione Responsabili */}
-      <section className="team-leaders">
-        <div className="container">
-          <h2>I nostri Responsabili</h2>
-          <div className="leaders-split">
-            <div className="leader-left">
-              <div className="leader-avatar">
-                <div className="avatar-icon">👨‍💼</div>
-              </div>
-              <div className="leader-info">
-                <h3>Marica Peroni</h3>
-                <h4>Presidente</h4>
-                <p>Studente di Studi strategici, Marica coordina le attività dell'associazione e rappresenta gli studenti negli organi universitari. Appassionata di diritto costituzionale e attivismo studentesco, si dedica al miglioramento dell'esperienza universitaria per tutti gli studenti.</p>
-              </div>
-            </div>
-            
-            <div className="leader-right">
-              <div className="leader-avatar">
-                <div className="avatar-icon">👩‍💻</div>
-              </div>
-              <div className="leader-info">
-                <h3>Enzo Russo</h3>
-                <h4>Vice Presidente</h4>
-                <p>Laureando in Servizi Giuridici, Enzo si occupa della gestione organizzativa e dei rapporti con le aziende partner. Esperto in project management e networking professionale, coordina eventi e iniziative per lo sviluppo della carriera studentesca.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Sezione Prossimi Eventi */}
       <section className="upcoming-events">
@@ -143,32 +115,31 @@ const HomePage: React.FC = () => {
           <div className="events-grid">
             <div className="event-card featured">
               <div className="event-date">
-                <span className="day">15</span>
-                <span className="month">AGO</span>
+                <span className="day">1</span>
+                <span className="month">OTT</span>
               </div>
               <div className="event-info">
                 <h3>Welcome Day Matricole 2025</h3>
                 <p>Evento di benvenuto per le nuove matricole con presentazioni, tour del campus e aperitivo di networking.</p>
                 <div className="event-details">
-                  <span>📍 Aula Magna</span>
+                  <span>📍 Polo Zanotto</span>
                   <span>🕒 15:00 - 19:00</span>
                   <span>👥 Gratuito</span>
                 </div>
               </div>
-              <button className="event-btn">Partecipa</button>
             </div>
             
             <div className="event-card">
               <div className="event-date">
-                <span className="day">22</span>
-                <span className="month">AGO</span>
+                <span className="day">9-11</span>
+                <span className="month">OTT</span>
               </div>
               <div className="event-info">
-                <h3>Workshop: "Come Preparare la Tesi"</h3>
-                <p>Seminario pratico su metodologie di ricerca, struttura della tesi e presentazione.</p>
+                <h3>Festival Aurora</h3>
+                <p>Festival di inizio anno accademico organizzato da Azione Universitaria.</p>
                 <div className="event-details">
-                  <span>📍 Sala Conferenze</span>
-                  <span>🕒 14:00 - 17:00</span>
+                  <span>Santa Marta</span>
+                  <span>🕒 18:00 - 23:00</span>
                 </div>
               </div>
             </div>

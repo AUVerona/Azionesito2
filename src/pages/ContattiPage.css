@@ -1,4 +1,4 @@
-/* Stili per la pagina Contatti */
+/* Stili per la pagina Contatti - stile Chi Siamo */
 .contatti-page {
   min-height: 100vh;
   display: flex;
@@ -9,249 +9,96 @@
   flex: 1;
 }
 
-.contatti-hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 4rem 0 3rem;
-  text-align: center;
+/* Social links styling - compact block */
+.social-links-compact {
+  margin: 2rem 0;
 }
 
-.contatti-hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.contatti-hero p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-.contatti-content {
-  padding: 3rem 0;
-}
-
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.contact-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
-  margin-bottom: 3rem;
-}
-
-.contact-text h2 {
-  color: #333;
-  margin-bottom: 1.5rem;
-}
-
-/* Social list */
-.social-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.social-icons-block {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.social-item a {
-  color: #2E86C1;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.social-item a:hover {
-  text-decoration: underline;
-}
-
-.social-icon {
-  margin-right: 0.5rem;
-}
-
-.address-block {
-  font-style: normal;
-  color: #555;
-  line-height: 1.6;
-  background: #f8f9fa;
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid #667eea;
-}
-
-.contact-item {
-  margin-bottom: 1.5rem;
-  padding: 1.2rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-  border-left: 4px solid #667eea;
-}
-
-.contact-item h3 {
-  color: #667eea;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-.contact-item p {
-  color: #333;
-  margin: 0.25rem 0;
-}
-
-.contact-item small {
-  color: #666;
-  font-style: italic;
-}
-
-/* Visual card a destra, stile simile a cards del sito */
-.contact-visual {
-  display: flex;
-  justify-content: center;
-}
-
-.contact-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0,0,0,0.06);
-  max-width: 520px;
-}
-
-.card-emoji {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.contact-card h3 {
-  margin: 0.2rem 0 0.8rem 0;
-  color: #333;
-}
-
-.contact-card p {
-  color: #666;
-  line-height: 1.6;
-}
-
-.contact-list {
-  margin: 1rem 0 0 1rem;
-}
-
-.contact-list li {
-  color: #555;
-  margin: 0.25rem 0;
-}
-
-/* Bottoni di azione contatto */
-.contact-actions {
-  display: flex;
-  gap: 0.8rem;
-  margin-top: 1rem;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  border-left: 4px solid var(--au-green);
   flex-wrap: wrap;
 }
 
-.contact-btn {
-  display: inline-block;
-  padding: 0.75rem 1.2rem;
-  border-radius: 10px;
-  font-weight: 700;
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: white;
+  border-radius: 8px;
   text-decoration: none;
-  border: 2px solid transparent;
+  color: var(--au-blue);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.08);
+  min-width: 120px;
+  justify-content: center;
 }
 
-.contact-btn.primary {
-  background: #667eea;
-  color: white;
-  border-color: #667eea;
+.social-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  color: var(--au-green);
 }
 
-.contact-btn.outline {
-  background: transparent;
-  color: #667eea;
-  border-color: #667eea;
+.social-icon {
+  font-size: 1.1rem;
 }
 
-.map-section {
-  margin-top: 4rem;
+.social-text {
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
-.map-section h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 2rem;
-}
-
-.map-embed {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
+/* Address styling */
+.address-info {
+  background: #f8fafc;
+  padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  border: 1px solid rgba(0,0,0,0.06);
+  border-left: 4px solid var(--au-blue);
+  font-style: normal;
+  line-height: 1.6;
+  margin-top: 1.5rem;
 }
 
-.map-embed iframe {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+.address-info strong {
+  color: var(--au-blue);
+  font-weight: 600;
+}
+
+/* Map container - square aspect ratio */
+.map-container {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.location-map {
   width: 100%;
   height: 100%;
-  border: 0;
+  border: none;
 }
 
-.transport-info h3 {
-  color: #333;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.transport-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.transport-item {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.transport-item h4 {
-  color: #667eea;
-  margin-bottom: 0.5rem;
-}
-
-.transport-item p {
-  color: #666;
-  margin: 0;
-}
-
-/* Responsive */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .contatti-hero {
-    padding: 3rem 0 2rem;
+  .social-icons-block {
+    flex-direction: column;
+    gap: 0.75rem;
   }
   
-  .contatti-hero h1 {
-    font-size: 1.8rem;
+  .social-link {
+    min-width: auto;
   }
   
-  .contact-split {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .map-container {
+    margin-top: 2rem;
   }
-  
-  .container {
-    padding: 0 1rem;
-  }
-  .contact-visual { order: 2; }
-  .contact-text { order: 1; }
 }

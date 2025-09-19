@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import * as pdfjsLib from 'pdfjs-dist'
 
-// Use a static worker file served from /public to avoid CSP issues with blob/eval
-pdfjsLib.GlobalWorkerOptions.workerSrc = `${import.meta.env.BASE_URL}pdf.worker.js`
+// Use the correct worker file for pdfjs-dist v5.x (.mjs format)
+pdfjsLib.GlobalWorkerOptions.workerSrc = `${import.meta.env.BASE_URL}pdf.worker.mjs`
 
 type Props = {
   src: string
@@ -17,6 +17,19 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
   const [spreadIndex, setSpreadIndex] = useState(0)
   const [scale, setScale] = useState(1.2)
   const [error, setError] = useState<string | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1) // Per modalità mobile
+
+  // Rileva se siamo su mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const renderPageToCanvas = useCallback(async (pageNum: number, canvas: HTMLCanvasElement | null) => {
     if (!pdfDoc || !canvas) return
@@ -41,46 +54,72 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
   }, [pdfDoc, scale])
 
   const renderSpread = useCallback(async () => {
-    // Determine pages for current spread
-    let leftPageNum: number | null
-    let rightPageNum: number | null
-    if (spreadIndex === 0) {
-      leftPageNum = null
-      rightPageNum = 1
-    } else {
-      leftPageNum = spreadIndex * 2
-      rightPageNum = leftPageNum + 1
-    }
-
-    // Render left (blank if null or out of range)
-    const leftCanvas = leftCanvasRef.current
-    if (leftPageNum == null) {
+    if (isMobile) {
+      // Modalità mobile: mostra solo una pagina
+      const leftCanvas = leftCanvasRef.current
+      const rightCanvas = rightCanvasRef.current
+      
       if (leftCanvas) {
         const ctx = leftCanvas.getContext('2d')
         if (ctx) ctx.clearRect(0, 0, leftCanvas.width, leftCanvas.height)
-        // Try to mirror right canvas CSS size for layout symmetry
-        const rightCanvas = rightCanvasRef.current
-        if (rightCanvas) {
-          leftCanvas.style.width = rightCanvas.style.width
-          leftCanvas.style.height = rightCanvas.style.height
-          leftCanvas.width = rightCanvas.width
-          leftCanvas.height = rightCanvas.height
-        }
+        leftCanvas.style.display = 'none'
+      }
+      
+      await renderPageToCanvas(currentPage, rightCanvas)
+      if (rightCanvas) {
+        rightCanvas.style.display = 'block'
       }
     } else {
-      await renderPageToCanvas(leftPageNum, leftCanvas)
-    }
+      // Modalità desktop: mostra due pagine (layout libro)
+      const leftCanvas = leftCanvasRef.current
+      const rightCanvas = rightCanvasRef.current
+      
+      if (leftCanvas) leftCanvas.style.display = 'block'
+      if (rightCanvas) rightCanvas.style.display = 'block'
+      
+      // Determine pages for current spread
+      let leftPageNum: number | null
+      let rightPageNum: number | null
+      if (spreadIndex === 0) {
+        leftPageNum = null
+        rightPageNum = 1
+      } else {
+        leftPageNum = spreadIndex * 2
+        rightPageNum = leftPageNum + 1
+      }
 
-    // Render right
-    await renderPageToCanvas(rightPageNum ?? 0, rightCanvasRef.current)
-  }, [spreadIndex, renderPageToCanvas])
+      // Render left (blank if null or out of range)
+      if (leftPageNum == null) {
+        if (leftCanvas) {
+          const ctx = leftCanvas.getContext('2d')
+          if (ctx) ctx.clearRect(0, 0, leftCanvas.width, leftCanvas.height)
+          // Try to mirror right canvas CSS size for layout symmetry
+          if (rightCanvas) {
+            leftCanvas.style.width = rightCanvas.style.width
+            leftCanvas.style.height = rightCanvas.style.height
+            leftCanvas.width = rightCanvas.width
+            leftCanvas.height = rightCanvas.height
+          }
+        }
+      } else {
+        await renderPageToCanvas(leftPageNum, leftCanvas)
+      }
+
+      // Render right
+      await renderPageToCanvas(rightPageNum ?? 0, rightCanvas)
+    }
+  }, [spreadIndex, renderPageToCanvas, isMobile, currentPage])
 
   useEffect(() => {
     let canceled = false
     const load = async () => {
       try {
         setError(null)
-        const loadingTask = pdfjsLib.getDocument({ url: src, disableEval: true } as any)
+        // Simplified PDF.js configuration for v5.x
+        const loadingTask = pdfjsLib.getDocument({
+          url: src,
+          verbosity: 0 // Reduce console noise
+        })
         const doc = await loadingTask.promise
         if (canceled) return
         setPdfDoc(doc)
@@ -101,14 +140,42 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
     renderSpread()
   }, [pdfDoc, renderSpread, scale])
 
+  // Sincronizza la pagina corrente quando cambiamo modalità
+  useEffect(() => {
+    if (!pdfDoc) return
+    
+    if (isMobile) {
+      // Quando passiamo a mobile, sincronizza la pagina corrente con lo spread
+      if (spreadIndex === 0) {
+        setCurrentPage(1)
+      } else {
+        setCurrentPage(spreadIndex * 2) // Mostra la prima pagina dello spread corrente
+      }
+    }
+  }, [isMobile, spreadIndex, pdfDoc])
+
   const next = () => {
     if (!pdfDoc) return
-    const n = pdfDoc.numPages
-    const maxSpread = Math.ceil((Math.max(n - 1, 0)) / 2)
-    setSpreadIndex((s) => Math.min(s + 1, maxSpread))
+    
+    if (isMobile) {
+      // Modalità mobile: naviga per singola pagina
+      setCurrentPage((page) => Math.min(page + 1, pdfDoc.numPages))
+    } else {
+      // Modalità desktop: naviga per spread
+      const n = pdfDoc.numPages
+      const maxSpread = Math.ceil((Math.max(n - 1, 0)) / 2)
+      setSpreadIndex((s) => Math.min(s + 1, maxSpread))
+    }
   }
+  
   const prev = () => {
-    setSpreadIndex((s) => Math.max(0, s - 1))
+    if (isMobile) {
+      // Modalità mobile: naviga per singola pagina
+      setCurrentPage((page) => Math.max(1, page - 1))
+    } else {
+      // Modalità desktop: naviga per spread
+      setSpreadIndex((s) => Math.max(0, s - 1))
+    }
   }
 
   const zoomIn = () => setScale((s) => Math.min(2.5, s + 0.1))
@@ -119,21 +186,29 @@ const TwoPagePdfViewer: React.FC<Props> = ({ src }) => {
       <div className="tpv-toolbar">
         <button onClick={prev} aria-label="Pagina precedente">⟵</button>
         {(() => {
-          // Info: show pages displayed like "-/1" for first spread, then "2/3", "4/5" etc., clamped to numPages
-          let leftLabel = '-'
-          let rightLabel = '-'
           const n = pdfDoc?.numPages ?? 0
-          if (spreadIndex === 0) {
-            rightLabel = n >= 1 ? '1' : '-'
+          
+          if (isMobile) {
+            // Modalità mobile: mostra pagina corrente / totale
+            return (
+              <span className="tpv-info">Pagina {currentPage}/{n} • scala {scale.toFixed(1)}x</span>
+            )
           } else {
-            const left = spreadIndex * 2
-            const right = left + 1
-            leftLabel = left <= n ? String(left) : '-'
-            rightLabel = right <= n ? String(right) : '-'
+            // Modalità desktop: mostra pagine spread come prima
+            let leftLabel = '-'
+            let rightLabel = '-'
+            if (spreadIndex === 0) {
+              rightLabel = n >= 1 ? '1' : '-'
+            } else {
+              const left = spreadIndex * 2
+              const right = left + 1
+              leftLabel = left <= n ? String(left) : '-'
+              rightLabel = right <= n ? String(right) : '-'
+            }
+            return (
+              <span className="tpv-info">{leftLabel}/{rightLabel} • scala {scale.toFixed(1)}x</span>
+            )
           }
-          return (
-            <span className="tpv-info">{leftLabel}/{rightLabel} • scala {scale.toFixed(1)}x</span>
-          )
         })()}
         <button onClick={next} aria-label="Pagina successiva">⟶</button>
         <div className="tpv-zoom">

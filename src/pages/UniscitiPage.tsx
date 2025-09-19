@@ -220,7 +220,7 @@ const UniscitiPage: React.FC = () => {
                     onChange={(e) => setPrivacyAccepted(e.target.checked)}
                     required
                   />
-                  <span>Ho letto e accetto l'<a href="/privacy" target="_blank">informativa privacy</a></span>
+                  <span>Ho letto e accetto l'<a href="/#/privacy" target="_blank">informativa privacy</a></span>
                 </label>
               </div>
               

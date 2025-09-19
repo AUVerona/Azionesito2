@@ -68,7 +68,7 @@ const RappresentanzaPage: React.FC = () => {
                     loading="lazy"
                     onError={(e) => { (e.currentTarget as HTMLImageElement).src = fotoGruppo }}
                   />
-                  <figcaption style={{color: '#666', marginTop: '.5rem'}}>Rappresentante in Senato Accademico</figcaption>
+                  <figcaption style={{color: '#666', marginTop: '.5rem'}}>Marica Peroni, Rappesentante in senato accademico</figcaption>
                 </figure>
               </div>
             </div>
@@ -86,7 +86,7 @@ const RappresentanzaPage: React.FC = () => {
                     loading="lazy"
                     onError={(e) => { (e.currentTarget as HTMLImageElement).src = fotoGruppo }}
                   />
-                  <figcaption style={{color: '#666', marginTop: '.5rem'}}>Rappresentante in consiglio studentesco</figcaption>
+                  <figcaption style={{color: '#666', marginTop: '.5rem'}}>Enzo Russo, Rappresentante in consiglio studentesco</figcaption>
                 </figure>
               </div>
               <div className="section-text">

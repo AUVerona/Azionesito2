@@ -30,7 +30,7 @@ function App() {
           <Route path="/rappresentanza" element={<RappresentanzaPage />} />
           <Route path="/unisciti" element={<UniscitiPage />} />
           <Route path="/diventa-volontario" element={<UniscitiPage />} />
-          <Route path="/info" element={<InfoPage />} />
+          <Route path="/aurora" element={<InfoPage />} />
           <Route path="/aiuto-matricole" element={<AiutoMatricolePage />} />
           <Route path="/contatti" element={<ContattiPage />} />
           <Route path="/donazioni" element={<DonazioniPage />} />

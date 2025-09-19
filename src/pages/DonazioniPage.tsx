@@ -82,44 +82,6 @@ const DonazioniPage: React.FC = () => {
               </p>
             </div>
 
-            <h3>💳 Bonifico Bancario</h3>
-            <div className="content-section">
-              <p>
-                Per donazioni tramite bonifico bancario, utilizza i seguenti dati:
-              </p>
-              <div className="bank-details">
-                <p><strong>Intestatario:</strong> Associazione Universitaria Verona</p>
-                <p><strong>IBAN:</strong> IT60 X054 2811 1010 0000 0123 456</p>
-                <p><strong>Causale:</strong> Donazione liberale AUVR</p>
-              </div>
-            </div>
-
-            <h3>📱 Donazioni digitali</h3>
-            <div className="content-section">
-              <p>
-                Per chi preferisce donazioni rapide e digitali, mettiamo a disposizione piattaforme 
-                sicure e certificate:
-              </p>
-              <div className="digital-donations">
-                <a 
-                  href="https://paypal.me/auverona" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="donation-button paypal-button"
-                >
-                  💳 Dona con PayPal
-                </a>
-                <a 
-                  href="https://ko-fi.com/auverona" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="donation-button kofi-button"
-                >
-                  ☕ Offrici un caffè
-                </a>
-              </div>
-            </div>
-
             <h2>Trasparenza e responsabilità</h2>
             <div className="content-section">
               <p>

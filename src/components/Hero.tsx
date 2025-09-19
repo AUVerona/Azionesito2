@@ -26,8 +26,8 @@ const Hero: React.FC = () => {
       <div className="container" style={{ position: 'relative', zIndex: 2, width: '100%' }}>
         <div className="hero-cta">
           <div className="hero-buttons">
-            <Link to="/info" className="hero-btn secondary" aria-label="Più informazioni">
-              INFO
+            <Link to="/aurora" className="hero-btn secondary" aria-label="Più informazioni su Aurora">
+              AURORA
             </Link>
             <Link to="/diventa-volontario" className="hero-btn primary" aria-label="Diventa volontario">
               Diventa Volontario

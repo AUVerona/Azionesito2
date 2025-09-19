@@ -17,8 +17,8 @@ const PrivacyPage: React.FC = () => {
               <h2>1. Titolare del Trattamento</h2>
               <p>
                 Il Titolare del trattamento dei dati è <strong>Azione Universitaria Verona (AUVR)</strong>, 
-                con sede presso l'Università di Verona, contattabile all'indirizzo email: 
-                <a href="mailto:verona@azioneuniversitaria.it">verona@azioneuniversitaria.it</a>
+                con sede presso Via Campo Fiore 17A, Verona, contattabile all'indirizzo email: 
+                <a href="mailto:info@azioneuniversitariaverona.it">info@azioneuniversitariaverona.it</a>
               </p>
             </section>
 
@@ -40,7 +40,6 @@ const PrivacyPage: React.FC = () => {
               <ul>
                 <li>Gestione delle iscrizioni all'associazione studentesca</li>
                 <li>Comunicazioni relative alle attività e agli eventi dell'associazione</li>
-                <li>Invio di newsletter e aggiornamenti (previo consenso)</li>
                 <li>Adempimento di obblighi di legge</li>
               </ul>
             </section>
@@ -86,7 +85,7 @@ const PrivacyPage: React.FC = () => {
               </ul>
               <p>
                 Per esercitare tali diritti, è possibile contattare il Titolare all'indirizzo: 
-                <a href="mailto:verona@azioneuniversitaria.it">verona@azioneuniversitaria.it</a>
+                <a href="mailto:info@azioneuniversitariaverona.it">info@azioneuniversitariaverona.it</a>
               </p>
             </section>
 
@@ -130,8 +129,8 @@ const PrivacyPage: React.FC = () => {
               </p>
               <div className="contact-box">
                 <p><strong>Azione Universitaria Verona (AUVR)</strong></p>
-                <p>Email: <a href="mailto:verona@azioneuniversitaria.it">verona@azioneuniversitaria.it</a></p>
-                <p>Sede: Università di Verona</p>
+                <p>Email: <a href="mailto:info@azioneuniversitariaverona.it">info@azioneuniversitariaverona.it</a></p>
+                <p>Sede: Via Campo Fiore 17A, Verona</p>
               </div>
             </section>
           </div>
