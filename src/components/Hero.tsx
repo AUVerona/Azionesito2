@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
             <Link to="/aurora" className="hero-btn secondary" aria-label="Più informazioni su Aurora">
               AURORA
             </Link>
-            <Link to="/diventa-volontario" className="hero-btn primary" aria-label="Diventa volontario">
+            <Link to="https://docs.google.com/forms/d/e/1FAIpQLSf2Ru11j-4wBjmI6ac-7SMOI9HvskmMWyrEkkSpboXetGIDTQ/viewform" className="hero-btn primary" aria-label="Diventa volontario">
               Diventa Volontario
             </Link>
           </div>

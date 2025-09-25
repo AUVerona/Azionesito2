@@ -36,10 +36,7 @@ const HomePage: React.FC = () => {
             <div className="about-text">
               <h2 id="about-heading">Chi Siamo</h2>
               <p>
-                Siamo l'Associazione Universitaria di Verona, una community dinamica 
-                che riunisce studenti di tutti i corsi di laurea. La nostra missione è creare 
-                un ambiente di supporto, crescita e condivisione per migliorare l'esperienza 
-                universitaria di ogni studente.
+                Azione Univesitaria, erede del FUAN (Fronte Universitario d'Azione Nazionale), è presente in gran parte degli Atenei italiani e ha contribuito alla formazione di una classe dirigente attiva in politica e nella società civile.
               </p>
               <p>
                 Dal 2024 organizziamo eventi, workshop, sessioni di studio e attività ricreative 

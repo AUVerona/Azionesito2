@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ReCAPTCHA from 'react-google-recaptcha'
 import emailjs from '@emailjs/browser'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -19,7 +18,7 @@ const UniscitiPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [privacyAccepted, setPrivacyAccepted] = useState(false)
-  const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null)
+  
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -32,11 +31,6 @@ const UniscitiPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    // Validazione reCAPTCHA
-    if (!recaptchaValue) {
-      setSubmitStatus('error')
-      return
-    }
     
     setIsSubmitting(true)
     setSubmitStatus('idle')
@@ -106,7 +100,7 @@ const UniscitiPage: React.FC = () => {
         annoStudio: '', message: ''
       })
       setPrivacyAccepted(false)
-      setRecaptchaValue(null)
+      
       setSubmitStatus('success')
       
       // Nascondi messaggio dopo 8 secondi
@@ -224,18 +218,11 @@ const UniscitiPage: React.FC = () => {
                 </label>
               </div>
               
-              <div className="recaptcha-group">
-                <ReCAPTCHA
-                  sitekey="6LdKX8krAAAAAGUddknlxZkDPdI3E1SVLqjm32v0"
-                  onChange={(value) => setRecaptchaValue(value)}
-                  onExpired={() => setRecaptchaValue(null)}
-                />
-              </div>
               
               <button 
                 type="submit" 
                 className="submit-button"
-                disabled={isSubmitting || !privacyAccepted || !recaptchaValue}
+                disabled={isSubmitting || !privacyAccepted}
               >
                 {isSubmitting ? 'Invio in corso...' : 'Invia la tua richiesta'}
               </button>
